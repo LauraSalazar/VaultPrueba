@@ -84,15 +84,7 @@ public class GenerateDB {
         
         e6 = new Employee("Employee4","LastName4","email4","number4",(sdf.parse( "2005-12-31")),j2,new Double(980.00),new Double(15.00),e2,d3);
         
-        }
-        catch (ParseException e) {
-        	e.printStackTrace();
-        } 
-		catch (java.text.ParseException e) {
 
-			e.printStackTrace();
-		}
-        
         System.out.println("Antes de imprimir el nombre de Ana");
         System.out.println("El nombre de ana es: " + e1.getFirstName());
         
@@ -112,7 +104,6 @@ public class GenerateDB {
         d4.setManager(e2);
         d4.setLocation(l7);
         
-        try {
         jh1.setEmployee(e1);
         jh1.setStartDate((sdf.parse( "2008-12-31")));
         jh1.setEndDate((sdf.parse( "2011-12-31")));
@@ -153,6 +144,14 @@ public class GenerateDB {
         jh8.setEndDate((sdf.parse( "2018-12-31")));
         jh8.setJob(j2);
         
+
+        EmployeeDAO eDAO = new EmployeeDAO();
+        eDAO.create(e1);
+        eDAO.create(e2);
+        eDAO.create(e3);
+        eDAO.create(e4);
+        eDAO.create(e5);
+        eDAO.create(e6);
         }
         catch (ParseException e) {
         	e.printStackTrace();
@@ -161,14 +160,6 @@ public class GenerateDB {
 
 			e.printStackTrace();
 		}
-        EmployeeDAO eDAO = new EmployeeDAO();
-        eDAO.create(e1);
-        eDAO.create(e2);
-        eDAO.create(e3);
-        eDAO.create(e4);
-        eDAO.create(e5);
-        eDAO.create(e6);
-        
         return "Greetings from Spring Boot! 2";
     }
 }
