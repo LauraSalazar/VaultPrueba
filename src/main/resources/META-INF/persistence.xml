@@ -12,13 +12,13 @@
 				value="org.postgresql.Driver" />
 				
 			<property name="javax.persistence.jdbc.password"
-				value="a80ad24d71303af549e6c7ee73ce6eefbb81e78e8989c91c44344f3cfb0cd003" />
+				value="c2360479963fed016755da30cefaff4b098a348b5ab8951d4229606a0d9a4c99" />
 				
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:postgresql://ec2-54-83-38-174.compute-1.amazonaws.com:5432/dc18f0lb1ksi3e" />
+				value="jdbc:postgresql://ec2-54-83-38-174.compute-1.amazonaws.com:5432/dfcs34sveiuhd6" />
 				
 			<property name="javax.persistence.jdbc.user"
-				value="xpqhknbvdrjusn" />
+				value="zremqpdfyctisl" />
 				
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.PostgreSQLDialect" />
