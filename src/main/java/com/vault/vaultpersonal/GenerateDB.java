@@ -93,6 +93,8 @@ public class GenerateDB {
 			e.printStackTrace();
 		}
         
+        System.out.println("El nombre de ana es: " + e1.getFirstName());
+        
         d1.setDepartmentName("department1");
         d1.setManager(e1);
         d1.setLocation(l3);
