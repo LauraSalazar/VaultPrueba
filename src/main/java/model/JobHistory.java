@@ -5,10 +5,17 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity(name = "JOB_HISTORY")
 public class JobHistory {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "JOBHISTORY_ID")
+	private Integer id;
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Employee employee;
 	@Column(name = "START_DATE")
@@ -61,6 +68,14 @@ public class JobHistory {
 	}
 	public void setDepartment(Department department) {
 		this.department = department;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 	
