@@ -68,21 +68,21 @@ public class GenerateDB {
         
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         
-        Employee e1=null,e2=null,e3=null,e4=null,e5=null,e6=null;
+        Employee e1=null,e2=null,e3=null,e4=null,e5=null,e6=null,edumy=new Employee();
         
         try {
         	
-        e1 = new Employee("Ana","Gomez","email1","number1",(sdf.parse( "2009-12-31")),j1,new Double(1500.00),new Double(20.00),null,d1);
+        e1 = new Employee("Ana","Gomez","email1","number1",(sdf.parse( "2009-12-31")),j1,new Double(1500.00),new Double(20.00),edumy,d1);
         
-        e2 = new Employee("Pedro","Perez","email2","number2",(sdf.parse( "2010-12-31")),j1,new Double(2500.00),new Double(20.00),null,d2);;
+        e2 = new Employee("Pedro","Perez","email2","number2",(sdf.parse( "2010-12-31")),j1,new Double(2500.00),new Double(20.00),edumy,d2);;
         
-        e3 = new Employee("Juan","Aguirre","email3","number3",(sdf.parse( "2001-12-31")),j2,new Double(950.00),new Double(15.00),null,d3);;
+        e3 = new Employee("Juan","Aguirre","email3","number3",(sdf.parse( "2001-12-31")),j2,new Double(950.00),new Double(15.00),e1,d3);;
         
-        e4 = new Employee("Employee4","LastName4","email4","number4",(sdf.parse( "2008-12-31")),j2,new Double(960.00),new Double(15.00),null,d4);
+        e4 = new Employee("Employee4","LastName4","email4","number4",(sdf.parse( "2008-12-31")),j2,new Double(960.00),new Double(15.00),e1,d4);
         
-        e5 = new Employee("Employee4","LastName4","email4","number4",(sdf.parse( "2006-12-31")),j2,new Double(970.00),new Double(15.00),null,d2);
+        e5 = new Employee("Employee4","LastName4","email4","number4",(sdf.parse( "2006-12-31")),j2,new Double(970.00),new Double(15.00),e2,d2);
         
-        e6 = new Employee("Employee4","LastName4","email4","number4",(sdf.parse( "2005-12-31")),j2,new Double(980.00),new Double(15.00),null,d3);
+        e6 = new Employee("Employee4","LastName4","email4","number4",(sdf.parse( "2005-12-31")),j2,new Double(980.00),new Double(15.00),e2,d3);
         
         }
         catch (ParseException e) {
