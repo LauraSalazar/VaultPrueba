@@ -27,7 +27,7 @@ public class Employee {
 	private String phoneNumber;
 	@Column(name = "HIRE_DATE")
 	private LocalDate hireDate;
-	@ManyToOne(optional = true)
+	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	private Job job;
 	@Column(name = "SALARY")
 	private Double salary;
