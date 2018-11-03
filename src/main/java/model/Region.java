@@ -14,6 +14,16 @@ public class Region {
 	private Integer id;
 	@Column(name = "NAME")
 	private String name;
+	
+	
+	public Region() {
+		super();
+	}
+	
+	public Region(String name) {
+		super();
+		this.name = name;
+	}
 	public Integer getId() {
 		return id;
 	}

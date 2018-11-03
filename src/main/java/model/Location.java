@@ -1,5 +1,6 @@
 package model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,8 +23,22 @@ public class Location {
 	@Column(name = "STATE_PROVINCE")
 	private String stateProvince;
 	
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Country country;
+
+	
+	public Location() {
+		super();
+	}
+
+	public Location(String streetAddress, String postalCode, String city, String stateProvince, Country country) {
+		super();
+		this.streetAddress = streetAddress;
+		this.postalCode = postalCode;
+		this.city = city;
+		this.stateProvince = stateProvince;
+		this.country = country;
+	}
 
 	public Integer getId() {
 		return id;

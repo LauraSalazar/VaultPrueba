@@ -2,6 +2,7 @@ package model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,16 +30,32 @@ public class Employee {
 	@ManyToOne(optional = false)
 	private Job job;
 	@Column(name = "SALARY")
-	private Integer salary;
+	private Double salary;
 	@Column(name = "COMMISSION_PCT")
-	private Integer commissionPct;
-	@ManyToOne(optional = false)
+	private Double commissionPct;
+	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Employee manager;
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Department department;
 	
+	public Employee() {
+		super();
+	}
 	
-	
+	public Employee(String firstName, String lastName, String email, String phoneNumber, Date hireDate, Job job,
+			Double salary, Double commissionPct, Employee manager, Department department) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.hireDate = hireDate;
+		this.job = job;
+		this.salary = salary;
+		this.commissionPct = commissionPct;
+		this.manager = manager;
+		this.department = department;
+	}
 	public String getLastName() {
 		return lastName;
 	}
@@ -69,16 +86,16 @@ public class Employee {
 	public void setJob(Job job) {
 		this.job = job;
 	}
-	public Integer getSalary() {
+	public Double getSalary() {
 		return salary;
 	}
-	public void setSalary(Integer salary) {
+	public void setSalary(Double salary) {
 		this.salary = salary;
 	}
-	public Integer getCommissionPct() {
+	public Double getCommissionPct() {
 		return commissionPct;
 	}
-	public void setCommissionPct(Integer commissionPct) {
+	public void setCommissionPct(Double commissionPct) {
 		this.commissionPct = commissionPct;
 	}
 	public Employee getManager() {

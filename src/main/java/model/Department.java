@@ -1,5 +1,6 @@
 package model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,11 +17,21 @@ public class Department {
 	@Column(name = "DEPARTMENT_NAME")
 	private String departmentName;
 	
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Employee manager;
 	
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Location location;
+
+	public Department() {
+		super();
+	}
+	public Department(String departmentName, Employee manager, Location location) {
+		super();
+		this.departmentName = departmentName;
+		this.manager = manager;
+		this.location = location;
+	}
 
 	public Integer getId() {
 		return id;

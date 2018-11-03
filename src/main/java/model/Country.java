@@ -1,5 +1,6 @@
 package model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,9 +16,19 @@ public class Country {
 	private Integer id;
 	@Column(name = "COUNTRY_NAME")
 	private String countryName;
-	
-	@ManyToOne(optional = false)
+
+	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Region region;
+
+	public Country() {
+	super();	
+	}
+	
+	public Country(String countryName, Region region) {
+		super();
+		this.countryName = countryName;
+		this.region = region;
+	}
 
 	public Integer getId() {
 		return id;
@@ -42,7 +53,5 @@ public class Country {
 	public void setRegion(Region region) {
 		this.region = region;
 	}
-	
-	
 
 }
