@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -26,7 +26,7 @@ public class Employee {
 	@Column(name = "PHONE_NUMBER")
 	private String phoneNumber;
 	@Column(name = "HIRE_DATE")
-	private Date hireDate;
+	private LocalDate hireDate;
 	@ManyToOne(optional = false)
 	private Job job;
 	@Column(name = "SALARY")
@@ -42,7 +42,7 @@ public class Employee {
 		super();
 	}
 	
-	public Employee(String firstName, String lastName, String email, String phoneNumber, Date hireDate, Job job,
+	public Employee(String firstName, String lastName, String email, String phoneNumber, LocalDate hireDate, Job job,
 			Double salary, Double commissionPct, Employee manager, Department department) {
 		super();
 		this.firstName = firstName;
@@ -74,10 +74,10 @@ public class Employee {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public Date getHireDate() {
+	public LocalDate getHireDate() {
 		return hireDate;
 	}
-	public void setHireDate(Date hireDate) {
+	public void setHireDate(LocalDate hireDate) {
 		this.hireDate = hireDate;
 	}
 	public Job getJob() {

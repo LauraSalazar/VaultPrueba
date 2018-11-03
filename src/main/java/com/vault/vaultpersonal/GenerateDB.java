@@ -1,6 +1,6 @@
 package com.vault.vaultpersonal;
 
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 import org.springframework.expression.ParseException;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,21 +68,20 @@ public class GenerateDB {
         
         JobHistory jh8 = new JobHistory();
         
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss a");
         
         Employee e1=null,e2=null,e3=null,e4=null,e5=null,e6=null,edumy=new Employee();
         	
-        e1 = new Employee("Ana","Gomez","email1","number1",(sdf.parse( "2009-12-31 09:00:00 AM")),j1,new Double(1500.00),new Double(20.00),edumy,d1);
+        e1 = new Employee("Ana","Gomez","email1","number1",(LocalDate.parse("2009-12-31")),j1,new Double(1500.00),new Double(20.00),edumy,d1);
         
-        e2 = new Employee("Pedro","Perez","email2","number2",(sdf.parse( "2010-12-31 09:00:00 AM")),j1,new Double(2500.00),new Double(20.00),edumy,d2);;
+        e2 = new Employee("Pedro","Perez","email2","number2",(LocalDate.parse("2010-12-31")),j1,new Double(2500.00),new Double(20.00),edumy,d2);;
         
-        e3 = new Employee("Juan","Aguirre","email3","number3",(sdf.parse( "2001-12-31 09:00:00 AM")),j2,new Double(950.00),new Double(15.00),e1,d3);;
+        e3 = new Employee("Juan","Aguirre","email3","number3",(LocalDate.parse( "2001-12-31")),j2,new Double(950.00),new Double(15.00),e1,d3);;
         
-        e4 = new Employee("Employee4","LastName4","email4","number4",(sdf.parse( "2008-12-31 09:00:00 AM")),j2,new Double(960.00),new Double(15.00),e1,d4);
+        e4 = new Employee("Employee4","LastName4","email4","number4",(LocalDate.parse( "2008-12-31")),j2,new Double(960.00),new Double(15.00),e1,d4);
         
-        e5 = new Employee("Employee4","LastName4","email4","number4",(sdf.parse( "2006-12-31 09:00:00 AM")),j2,new Double(970.00),new Double(15.00),e2,d2);
+        e5 = new Employee("Employee4","LastName4","email4","number4",(LocalDate.parse( "2006-12-31")),j2,new Double(970.00),new Double(15.00),e2,d2);
         
-        e6 = new Employee("Employee4","LastName4","email4","number4",(sdf.parse( "2005-12-31 09:00:00 AM")),j2,new Double(980.00),new Double(15.00),e2,d3);
+        e6 = new Employee("Employee4","LastName4","email4","number4",(LocalDate.parse( "2005-12-31")),j2,new Double(980.00),new Double(15.00),e2,d3);
         
 
         System.out.println("Antes de imprimir el nombre de Ana");
@@ -105,43 +104,43 @@ public class GenerateDB {
         d4.setLocation(l7);
         
         jh1.setEmployee(e1);
-        jh1.setStartDate((sdf.parse( "2008-12-31 09:00:00 AM")));
-        jh1.setEndDate((sdf.parse( "2011-12-31 09:00:00 AM")));
+        jh1.setStartDate((LocalDate.parse( "2008-12-31")));
+        jh1.setEndDate((LocalDate.parse( "2011-12-31")));
         jh1.setJob(j2);
         
         jh2.setEmployee(e1);
-        jh2.setStartDate((sdf.parse( "2011-12-31 09:00:00 AM")));
-        jh2.setEndDate((sdf.parse( "2018-12-31 09:00:00 AM")));
+        jh2.setStartDate((LocalDate.parse( "2011-12-31")));
+        jh2.setEndDate((LocalDate.parse( "2018-12-31")));
         jh2.setJob(j1);
         
         jh3.setEmployee(e2);
-        jh3.setStartDate((sdf.parse( "2008-12-31 09:00:00 AM")));
-        jh3.setEndDate((sdf.parse( "2011-12-31 09:00:00 AM")));
+        jh3.setStartDate((LocalDate.parse( "2008-12-31")));
+        jh3.setEndDate((LocalDate.parse( "2011-12-31")));
         jh3.setJob(j2);
         
         jh4.setEmployee(e2);
-        jh4.setStartDate((sdf.parse( "2011-12-31 09:00:00 AM")));
-        jh4.setEndDate((sdf.parse( "2018-12-31 09:00:00 AM")));
+        jh4.setStartDate((LocalDate.parse( "2011-12-31")));
+        jh4.setEndDate((LocalDate.parse( "2018-12-31")));
         jh4.setJob(j1);
         
         jh5.setEmployee(e3);
-        jh5.setStartDate((sdf.parse("2001-12-31 09:00:00 AM")));
-        jh5.setEndDate((sdf.parse("2018-12-31 09:00:00 AM")));
+        jh5.setStartDate((LocalDate.parse("2001-12-31")));
+        jh5.setEndDate((LocalDate.parse("2018-12-31")));
         jh5.setJob(j2);
         
         jh6.setEmployee(e4);
-        jh6.setStartDate((sdf.parse( "2008-12-31 09:00:00 AM")));
-        jh6.setEndDate((sdf.parse( "2018-12-31 09:00:00 AM")));
+        jh6.setStartDate((LocalDate.parse( "2008-12-31")));
+        jh6.setEndDate((LocalDate.parse( "2018-12-31")));
         jh6.setJob(j2);
         
         jh7.setEmployee(e5);
-        jh7.setStartDate((sdf.parse( "2006-12-31 09:00:00 AM")));
-        jh7.setEndDate((sdf.parse( "2018-12-31 09:00:00 AM")));
+        jh7.setStartDate((LocalDate.parse( "2006-12-31")));
+        jh7.setEndDate((LocalDate.parse( "2018-12-31")));
         jh7.setJob(j2);
         
         jh8.setEmployee(e6);
-        jh8.setStartDate((sdf.parse( "2005-12-31 09:00:00 AM")));
-        jh8.setEndDate((sdf.parse( "2018-12-31 09:00:00 AM")));
+        jh8.setStartDate((LocalDate.parse( "2005-12-31")));
+        jh8.setEndDate((LocalDate.parse( "2018-12-31")));
         jh8.setJob(j2);
         
 
@@ -156,10 +155,6 @@ public class GenerateDB {
         catch (ParseException e) {
         	e.printStackTrace();
         } 
-		catch (java.text.ParseException e) {
-
-			e.printStackTrace();
-		}
         return "Greetings from Spring Boot! 2";
     }
 }

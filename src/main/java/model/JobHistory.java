@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,9 +19,9 @@ public class JobHistory {
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Employee employee;
 	@Column(name = "START_DATE")
-	private Date startDate;
+	private LocalDate startDate;
 	@Column(name = "END_DATE")
-	private Date endDate;
+	private LocalDate endDate;
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Job job;
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
@@ -31,7 +31,7 @@ public class JobHistory {
 		super();
 	}
 	
-	public JobHistory(Employee employee, Date startDate, Date endDate, Job job, Department department) {
+	public JobHistory(Employee employee, LocalDate startDate, LocalDate endDate, Job job, Department department) {
 		super();
 		this.employee = employee;
 		this.startDate = startDate;
@@ -45,16 +45,16 @@ public class JobHistory {
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-	public Date getStartDate() {
+	public LocalDate getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
-	public Date getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(Date endDate) {
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 	public Job getJob() {
