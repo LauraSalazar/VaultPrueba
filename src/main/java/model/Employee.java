@@ -27,15 +27,15 @@ public class Employee {
 	private String phoneNumber;
 	@Column(name = "HIRE_DATE")
 	private LocalDate hireDate;
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	private Job job;
 	@Column(name = "SALARY")
 	private Double salary;
 	@Column(name = "COMMISSION_PCT")
 	private Double commissionPct;
-	@ManyToOne(optional = false, cascade = CascadeType.ALL)
+	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	private Employee manager;
-	@ManyToOne(optional = false, cascade = CascadeType.ALL)
+	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	private Department department;
 	
 	public Employee() {
