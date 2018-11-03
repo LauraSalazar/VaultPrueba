@@ -145,6 +145,7 @@ public class GenerateDB {
         
 
         EmployeeDAO eDAO = new EmployeeDAO();
+        eDAO.create(edumy);
         eDAO.create(e1);
         eDAO.create(e2);
         eDAO.create(e3);
