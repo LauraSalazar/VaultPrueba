@@ -93,6 +93,7 @@ public class GenerateDB {
 			e.printStackTrace();
 		}
         
+        System.out.println("Antes de imprimir el nombre de Ana");
         System.out.println("El nombre de ana es: " + e1.getFirstName());
         
         d1.setDepartmentName("department1");
