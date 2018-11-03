@@ -20,7 +20,9 @@ public class GenerateDB {
 	@RequestMapping("/generate")
     public String index() {
 
-
+        
+        try {
+        	
         Region r1 = new Region("Europe MidleEast Africa");
   
         Region r2 = new Region("Latin america");
@@ -69,8 +71,6 @@ public class GenerateDB {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         
         Employee e1=null,e2=null,e3=null,e4=null,e5=null,e6=null,edumy=new Employee();
-        
-        try {
         	
         e1 = new Employee("Ana","Gomez","email1","number1",(sdf.parse( "2009-12-31")),j1,new Double(1500.00),new Double(20.00),edumy,d1);
         
