@@ -1,6 +1,7 @@
 package com.vault.services;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -70,5 +71,18 @@ public class EmployeeService {
 			empDTO = new EmployeeDTO(emp);
 		}
 		return empDTO;
+	}
+	
+	public List<Employee> getEmpleadosByJobId(Integer paginacion,Integer id, Integer pagina){
+		return empDAO.getEmpleadosByJobId(id);
+		
+	}
+	
+	public List<Employee> getEmpleadosByManagerId(Integer paginacion,Integer id, Integer pagina){
+		return empDAO.getEmpleadosByManagerId(id);
+	}
+	
+	public List<Employee> getEmpleadosLastName(Integer paginacion,Integer id, Integer pagina){
+		return empDAO.getEmpleadosByManagerId(id);
 	}
 }

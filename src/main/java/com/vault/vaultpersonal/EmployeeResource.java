@@ -76,7 +76,24 @@ public class EmployeeResource {
 		return generateJson(empDTO);
 	}
 
+	// Retorna el una lista de empleados con sus objetos ordenados y paginados
+	@RequestMapping(value = "/obtenerListadoEmpleados/{tipofiltro}/{id}/{paginacion}/{pagina}", produces = "application/json")
+	public String obtenerListadoEmpleados(Map<String, Object> model, @PathVariable("tipoFiltro") String tipoFiltro,@PathVariable("id") Integer id,@PathVariable("paginacion") Integer paginacion,@PathVariable("pagina") Integer pagina) {
 
+		String resultado = null;
+		switch (tipoFiltro) {
+		case "JOB_ID" : resultado = generateJson(empleadoService.getEmpleadosByJobId(paginacion,id,pagina));
+		break;
+	    case "MANAGER_ID":  resultado = generateJson(empleadoService.getEmpleadosByManagerId(paginacion,id,pagina));
+        break;
+	    case "LAST_NAME": resultado = generateJson(empleadoService.getEmpleadosLastName(paginacion,id,pagina));
+        break;
+		}
+		return resultado;
+		
+		
+	}
+	
 	public String generateJson(Object aSerializableObject) {
 		Map<String, Object> aMap = new HashMap<String, Object>();
 		aMap.put("result", "OK");

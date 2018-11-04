@@ -1,5 +1,8 @@
 package dbaccess.vault;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,5 +44,21 @@ public class EmployeeDAO extends GenericDAO {
 		this.getEntityManager().getTransaction().commit();
 	}
 	
+	public List<Employee> getEmpleadosByJobId(Integer id){
+
+		 String query = "select new Employee() from EMPLOYEE c where c.job = :id";
+		 @SuppressWarnings("unchecked")
+		 List<Employee>  employeeList = (List<Employee>) this.getEntityManager().createQuery(query).setParameter("id", id);
+		 return employeeList;
+	}
 	
+	public List<Employee> getEmpleadosByManagerId(Integer id){
+		 List<Employee> employeeList = new ArrayList<Employee>();
+		 return employeeList;
+	}
+	
+	public List<Employee> getEmpleadosLastName(Integer id){
+		 List<Employee> employeeList = new ArrayList<Employee>();
+		 return employeeList;
+	}
 }
