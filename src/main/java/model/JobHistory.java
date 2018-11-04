@@ -15,17 +15,14 @@ import javax.persistence.ManyToOne;
 public class JobHistory {
 
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
-	@JoinColumn(name = "EMPLOYEE_ID")
 	private Employee employee;
 	@Column(name = "START_DATE")
 	private LocalDate startDate;
 	@Column(name = "END_DATE")
 	private LocalDate endDate;
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
-	@JoinColumn(name = "JOB_ID")
 	private Job job;
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
-	@JoinColumn(name = "DEPARTMENT_ID")
 	private Department department;
 	
 	public JobHistory() {
