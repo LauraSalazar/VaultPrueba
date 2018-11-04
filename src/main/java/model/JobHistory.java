@@ -14,7 +14,6 @@ import javax.persistence.ManyToOne;
 @Entity(name = "JOB_HISTORY")
 public class JobHistory {
 
-
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "EMPLOYEE_ID")
 	private Employee employee;
