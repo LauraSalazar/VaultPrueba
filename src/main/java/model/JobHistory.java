@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -16,6 +17,7 @@ public class JobHistory implements Serializable{
 
 	@Id
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
+	@JoinColumn(name = "EMPLOYEE_ID")
 	private Employee employee;
 	@Column(name = "START_DATE")
 	private LocalDate startDate;
@@ -23,9 +25,11 @@ public class JobHistory implements Serializable{
 	private LocalDate endDate;
 	@Id
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
+	@JoinColumn(name = "JOB_ID")
 	private Job job;
 	@Id
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
+	@JoinColumn(name = "DEPARTMENT_ID")
 	private Department department;
 	
 	public JobHistory() {
