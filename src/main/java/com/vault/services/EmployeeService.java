@@ -55,6 +55,7 @@ public class EmployeeService {
 
 		if (emp != null) {
 			empDAO.delete(emp);
+			emp = new Employee();
 		    return emp;
 		}
 		return null;
