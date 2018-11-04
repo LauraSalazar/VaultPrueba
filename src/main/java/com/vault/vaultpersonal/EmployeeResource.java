@@ -82,11 +82,11 @@ public class EmployeeResource {
 
 		String resultado = null;
 		switch (tipoFiltro) {
-		case "JOB_ID" : resultado = generateJson(empleadoService.getEmpleadosByJobId(paginacion,id,pagina));
+		case "JOBID" : resultado = generateJson(empleadoService.getEmpleadosByJobId(paginacion,id,pagina));
 		break;
-	    case "MANAGER_ID":  resultado = generateJson(empleadoService.getEmpleadosByManagerId(paginacion,id,pagina));
+	    case "MANAGERID":  resultado = generateJson(empleadoService.getEmpleadosByManagerId(paginacion,id,pagina));
         break;
-	    case "LAST_NAME": resultado = generateJson(empleadoService.getEmpleadosLastName(paginacion,id,pagina));
+	    case "LASTNAME": resultado = generateJson(empleadoService.getEmpleadosLastName(paginacion,id,pagina));
         break;
 		}
 		return resultado;
