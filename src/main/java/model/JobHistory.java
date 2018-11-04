@@ -24,10 +24,10 @@ public class JobHistory implements Serializable{
 	private LocalDate startDate;
 	@Column(name = "END_DATE")
 	private LocalDate endDate;
-	@ManyToOne(optional = true, cascade = CascadeType.ALL)
+	@ManyToOne(optional = true)
 	@JoinColumn(name = "JOB_ID")
 	private Job job;
-	@ManyToOne(optional = true, cascade = CascadeType.ALL)
+	@ManyToOne(optional = true)
 	@JoinColumn(name = "DEPARTMENT_ID")
 	private Department department;
 	
