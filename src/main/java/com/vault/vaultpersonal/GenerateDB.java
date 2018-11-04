@@ -79,9 +79,9 @@ public class GenerateDB {
         
         e4 = new Employee("Employee4","LastName4","email4","number4",(LocalDate.parse( "2008-12-31")),j2,new Double(960.00),new Double(15.00),e1,d4);
         
-        e5 = new Employee("Employee4","LastName4","email4","number4",(LocalDate.parse( "2006-12-31")),j2,new Double(970.00),new Double(15.00),e2,d2);
+        e5 = new Employee("Employee5","LastName5","email5","number5",(LocalDate.parse( "2006-12-31")),j2,new Double(970.00),new Double(15.00),e2,d2);
         
-        e6 = new Employee("Employee4","LastName4","email4","number4",(LocalDate.parse( "2005-12-31")),j2,new Double(980.00),new Double(15.00),e2,d3);
+        e6 = new Employee("Employee6","LastName6","email6","number6",(LocalDate.parse( "2005-12-31")),j2,new Double(980.00),new Double(15.00),e2,d3);
         
 
         System.out.println("Antes de imprimir el nombre de Ana");
