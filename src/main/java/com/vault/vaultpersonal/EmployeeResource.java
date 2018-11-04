@@ -1,4 +1,4 @@
-package com.vault.resources;
+package com.vault.vaultpersonal;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 import com.vault.dto.EmployeeDTO;
 import com.vault.services.EmployeeService;
 
-@Controller
+@RestController
 public class EmployeeResource {
 
 	EmployeeService empleadoService;
