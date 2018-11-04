@@ -108,6 +108,7 @@ public class GenerateDB {
         jh1.setEndDate((LocalDate.parse( "2011-12-31")));
         jh1.setJob(j2);
         
+        System.out.println("Antes del primer addHistory " + e1.getJobHistories());
         e1.addJobHistory(jh1);
         
         jh2.setEmployee(e1);
