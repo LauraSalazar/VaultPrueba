@@ -3,6 +3,7 @@ package com.vault.resources;
 import java.util.HashMap;
 import java.util.Map;
 
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +24,7 @@ public class EmployeeResource {
 	}
 
 	@RequestMapping(value="/insertarEmpleado/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}",method=RequestMethod.POST)
-	public String insertar(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
+	public String insertar(Map<String, Object> model,@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
 			@RequestParam("email") String email, @RequestParam("phoneNumber") String phoneNumber,
 			@RequestParam("hireDate") String hireDate, @RequestParam("salary") String salary,
 			@RequestParam("commissionPct") String commissionPct) {
