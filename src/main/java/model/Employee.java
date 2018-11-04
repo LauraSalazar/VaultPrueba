@@ -20,38 +20,40 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "EMPLOYEE_ID")
-	public Integer id;
+	private Integer id;
 	@Column(name = "FIRST_NAME")
-	public String firstName;
+	private String firstName;
 	@Column(name = "LAST_NAME")
-	public String lastName;
+	private String lastName;
 	@Column(name = "EMAIL")
-	public String email;
+	private String email;
 	@Column(name = "PHONE_NUMBER")
-	public String phoneNumber;
+	private String phoneNumber;
 	@Column(name = "HIRE_DATE")
-	public LocalDate hireDate;
+	private LocalDate hireDate;
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "JOB_ID")
-	public Job job;
+	private Job job;
 	@Column(name = "SALARY")
-	public Double salary;
+	private Double salary;
 	@Column(name = "COMMISSION_PCT")
-	public Double commissionPct;
+	private Double commissionPct;
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANAGER_ID")
-	public Employee manager;
+	private Employee manager;
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "DEPARTMENT_ID")
-	public Department department;
-
+	private Department department;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<JobHistory> jobHistories;
 
 	public Employee() {
 		super();
 	}
 
 	public Employee(String firstName, String lastName, String email, String phoneNumber, LocalDate hireDate, Job job,
-			Double salary, Double commissionPct, Employee manager, Department department) {
+			Double salary, Double commissionPct, Employee manager, Department department, List<JobHistory> jobHistories) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -63,10 +65,11 @@ public class Employee {
 		this.commissionPct = commissionPct;
 		this.manager = manager;
 		this.department = department;
+		this.jobHistories = jobHistories;
 	}
 
-	public Employee( String firstName, String lastName, String email, String phoneNumber, LocalDate hireDate, Job job,
-			Double salary, Double commissionPct, Department department) {
+	public Employee(String firstName, String lastName, String email, String phoneNumber, LocalDate hireDate, Job job,
+			Double salary, Double commissionPct, Department department, List<JobHistory> jobHistories) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -77,6 +80,7 @@ public class Employee {
 		this.salary = salary;
 		this.commissionPct = commissionPct;
 		this.department = department;
+		this.jobHistories = jobHistories;
 	}
 
 	public String getLastName() {
@@ -165,6 +169,18 @@ public class Employee {
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+	}
+	
+	public void addJobHistory(JobHistory jh){
+		this.jobHistories.add(jh);
+	}
+
+	public List<JobHistory> getJobHistories() {
+		return jobHistories;
+	}
+
+	public void setJobHistories(List<JobHistory> jobHistories) {
+		this.jobHistories = jobHistories;
 	}
 
 }

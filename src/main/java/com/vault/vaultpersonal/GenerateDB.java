@@ -72,48 +72,48 @@ public class GenerateDB {
         
         Employee e1=null,e2=null,e3=null,e4=null,e5=null,e6=null;
         	
-        e1 = new Employee("Ana","Gomez","email1","number1",(LocalDate.parse("2009-12-31")),j1,new Double(1500.00),new Double(20.00),null,d1);
+        e1 = new Employee("Ana","Gomez","email1","number1",(LocalDate.parse("2009-12-31")),j1,new Double(1500.00),new Double(20.00),null,d1,new ArrayList<JobHistory>());
         
-        e2 = new Employee("Pedro","Perez","email2","number2",(LocalDate.parse("2010-12-31")),j1,new Double(2500.00),new Double(20.00),null,d2);;
+        e2 = new Employee("Pedro","Perez","email2","number2",(LocalDate.parse("2010-12-31")),j1,new Double(2500.00),new Double(20.00),null,d2,new ArrayList<JobHistory>());;
         
-        e3 = new Employee("Juan","Aguirre","email3","number3",(LocalDate.parse( "2001-12-31")),j2,new Double(950.00),new Double(15.00),e1,d3);;
+        e3 = new Employee("Juan","Aguirre","email3","number3",(LocalDate.parse( "2001-12-31")),j2,new Double(950.00),new Double(15.00),e1,d3,new ArrayList<JobHistory>());;
         
-        e4 = new Employee("Employee4","LastName4","email4","number4",(LocalDate.parse( "2008-12-31")),j2,new Double(960.00),new Double(15.00),e1,d4);
+        e4 = new Employee("Employee4","LastName4","email4","number4",(LocalDate.parse( "2008-12-31")),j2,new Double(960.00),new Double(15.00),e1,d4,new ArrayList<JobHistory>());
         
-        e5 = new Employee("Employee5","LastName5","email5","number5",(LocalDate.parse( "2006-12-31")),j2,new Double(970.00),new Double(15.00),e2,d2);
+        e5 = new Employee("Employee5","LastName5","email5","number5",(LocalDate.parse( "2006-12-31")),j2,new Double(970.00),new Double(15.00),e2,d2,new ArrayList<JobHistory>());
         
-        e6 = new Employee("Employee6","LastName6","email6","number6",(LocalDate.parse( "2005-12-31")),j2,new Double(980.00),new Double(15.00),e2,d3);
+        e6 = new Employee("Employee6","LastName6","email6","number6",(LocalDate.parse( "2005-12-31")),j2,new Double(980.00),new Double(15.00),e2,d3,new ArrayList<JobHistory>());
         
 
         System.out.println("Antes de imprimir el nombre de Ana");
         System.out.println("El nombre de ana es: " + e1.getFirstName());
         
         d1.setDepartmentName("department1");
-        d1.setManager(e2);
+        d1.setManager(e1.getId());
         d1.setLocation(l3);
         
         d2.setDepartmentName("department2");
-        d2.setManager(e1);
+        d2.setManager(e1.getId());
         d2.setLocation(l7);
         
         d3.setDepartmentName("department3");
-        d3.setManager(e1);
+        d3.setManager(e2.getId());
         d3.setLocation(l8);
         
         d4.setDepartmentName("department4");
-        d4.setManager(e2);
+        d4.setManager(e2.getId());
         d4.setLocation(l7);
         
-        jh1.setEmployee(e1);
+        jh1.setEmployee(e1.getId());
         jh1.setStartDate((LocalDate.parse( "2008-12-31")));
         jh1.setEndDate((LocalDate.parse( "2011-12-31")));
         jh1.setDepartment(d1);
         jh1.setJob(j2);
         
-        System.out.println("Antes del primer addHistory ");
+        System.out.println("Antes del primer addHistory " + e1.getJobHistories());
         //e1.addJobHistory(jh1);
         
-        jh2.setEmployee(e1);
+        jh2.setEmployee(e1.getId());
         jh2.setStartDate((LocalDate.parse( "2011-12-31")));
         jh2.setEndDate((LocalDate.parse( "2018-12-31")));
         jh2.setDepartment(d2);
@@ -121,7 +121,7 @@ public class GenerateDB {
         
         //e1.addJobHistory(jh2);
         
-        jh3.setEmployee(e2);
+        jh3.setEmployee(e2.getId());
         jh3.setStartDate((LocalDate.parse( "2008-12-31")));
         jh3.setEndDate((LocalDate.parse( "2011-12-31")));
         jh3.setDepartment(d3);
@@ -129,7 +129,7 @@ public class GenerateDB {
         
         //e2.addJobHistory(jh3);
         
-        jh4.setEmployee(e2);
+        jh4.setEmployee(e2.getId());
         jh4.setStartDate((LocalDate.parse( "2011-12-31")));
         jh4.setEndDate((LocalDate.parse( "2018-12-31")));
         jh4.setDepartment(d4);
@@ -137,7 +137,7 @@ public class GenerateDB {
         
         //e2.addJobHistory(jh4);
         
-        jh5.setEmployee(e3);
+        jh5.setEmployee(e3.getId());
         jh5.setStartDate((LocalDate.parse("2001-12-31")));
         jh5.setEndDate((LocalDate.parse("2018-12-31")));
         jh5.setDepartment(d1);
@@ -145,7 +145,7 @@ public class GenerateDB {
         
         //e3.addJobHistory(jh5);
         
-        jh6.setEmployee(e4);
+        jh6.setEmployee(e4.getId());
         jh6.setStartDate((LocalDate.parse( "2008-12-31")));
         jh6.setEndDate((LocalDate.parse( "2018-12-31")));
         jh6.setDepartment(d2);
@@ -153,7 +153,7 @@ public class GenerateDB {
         
         //e4.addJobHistory(jh6);
         
-        jh7.setEmployee(e5);
+        jh7.setEmployee(e5.getId());
         jh7.setStartDate((LocalDate.parse( "2006-12-31")));
         jh7.setEndDate((LocalDate.parse( "2018-12-31")));
         jh7.setDepartment(d3);
@@ -161,7 +161,7 @@ public class GenerateDB {
         
         //e5.addJobHistory(jh7);
         
-        jh8.setEmployee(e6);
+        jh8.setEmployee(e6.getId());
         jh8.setStartDate((LocalDate.parse( "2005-12-31")));
         jh8.setEndDate((LocalDate.parse( "2018-12-31")));
         jh8.setDepartment(d4);

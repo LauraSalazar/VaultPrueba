@@ -20,7 +20,7 @@ public class Department {
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANAGER_ID")
-    private Employee manager;
+    private Integer manager;
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Location location;
@@ -28,7 +28,7 @@ public class Department {
 	public Department() {
 		super();
 	}
-	public Department(String departmentName, Employee manager, Location location) {
+	public Department(String departmentName,Integer manager, Location location) {
 		super();
 		this.departmentName = departmentName;
 		this.manager = manager;
@@ -51,11 +51,11 @@ public class Department {
 		this.departmentName = departmentName;
 	}
 
-	public Employee getManager() {
+	public Integer getManager() {
 		return manager;
 	}
 
-	public void setManager(Employee manager) {
+	public void setManager(Integer manager) {
 		this.manager = manager;
 	}
 
