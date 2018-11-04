@@ -46,7 +46,7 @@ public class Employee {
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@Column(nullable = true)
-	transient private List<JobHistory> jobHistories;
+	private List<JobHistory> jobHistories;
 
 	public Employee() {
 		super();
