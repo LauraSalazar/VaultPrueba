@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity(name = "DEPARTMENTS")
 public class Department {
@@ -24,6 +27,9 @@ public class Department {
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Location location;
+	
+    @OneToMany(mappedBy = "department")
+    private Set<JobHistory> jobHistories;
 
 	public Department() {
 		super();

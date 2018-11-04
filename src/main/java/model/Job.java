@@ -1,10 +1,13 @@
 package model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity(name = "JOBS")
 public class Job {
@@ -19,6 +22,9 @@ public class Job {
 	@Column(name = "MAX_SALARY")
 	private Integer maxSalary;
 	
+    @OneToMany(mappedBy = "job")
+    private Set<JobHistory> orderItems;
+    
 	public Job() {
 		super();
 	}
