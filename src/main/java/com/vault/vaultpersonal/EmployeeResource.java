@@ -37,7 +37,7 @@ public class EmployeeResource {
 
 	// Modifica un empleado con los parametros
 	// {id}/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}"
-	@RequestMapping(value = "/modificarEmpleado/{id}/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}", produces = "application/json")
+	@RequestMapping(value = "/modificarEmpleado/{id}/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}")
 	public String modificar(Map<String, Object> model, @PathVariable("id") Integer id,
 			@PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName,
 			@PathVariable("email") String email, @PathVariable("phoneNumber") String phoneNumber,
@@ -46,8 +46,7 @@ public class EmployeeResource {
 
 		EmployeeDTO empDTO = empleadoService.modificarEmpleado(id, firstName, lastName, email, phoneNumber, hireDate,
 				salary, commissionPct);
-		if (empDTO == null)
-		{
+		if (empDTO == null) {
 			return "No existe el Empleado";
 		}
 		return "Se ha modificado el empleado";
@@ -58,13 +57,14 @@ public class EmployeeResource {
 	@RequestMapping(value = "/eliminarEmpleado/{id}")
 	public String eliminar(Map<String, Object> model, @PathVariable("id") Integer id) {
 
-	if (empleadoService.obtenerEmpleado(id)	== null) {
-		return "No existe el Empleado";
-	}
-		empleadoService.eliminarEmpleado(id);
+		if (empleadoService.obtenerEmpleado(id) == null) {
+			return "No existe el Empleado";
+		} else {
+			empleadoService.eliminarEmpleado(id);
+		}
 		return "Se ha eliminado el empleado";
 	}
-	
+
 	// Retorna el empleado con id {id}
 	@RequestMapping(value = "/obtenerEmpleado/{id}", produces = "application/json")
 	public String obtener(Map<String, Object> model, @PathVariable("id") Integer id) {
@@ -79,22 +79,26 @@ public class EmployeeResource {
 
 	// Retorna el una lista de empleados con sus objetos ordenados y paginados
 	@RequestMapping(value = "/obtenerListadoEmpleados/{tipofiltro}/{id}/{paginacion}/{pagina}", produces = "application/json")
-	public String obtenerListadoEmpleados(Map<String, Object> model, @PathVariable("tipofiltro") String tipoFiltro,@PathVariable("id") Integer id,@PathVariable("paginacion") Integer paginacion,@PathVariable("pagina") Integer pagina) {
+	public String obtenerListadoEmpleados(Map<String, Object> model, @PathVariable("tipofiltro") String tipoFiltro,
+			@PathVariable("id") Integer id, @PathVariable("paginacion") Integer paginacion,
+			@PathVariable("pagina") Integer pagina) {
 
 		String resultado = null;
 		switch (tipoFiltro) {
-		case "JOBID" : resultado = generateJson(empleadoService.getEmpleadosByJobId(paginacion,id,pagina));
-		break;
-	    case "MANAGERID":  resultado = generateJson(empleadoService.getEmpleadosByManagerId(paginacion,id,pagina));
-        break;
-	    case "LASTNAME": resultado = generateJson(empleadoService.getEmpleadosLastName(paginacion,id,pagina));
-        break;
+		case "JOBID":
+			resultado = generateJson(empleadoService.getEmpleadosByJobId(paginacion, id, pagina));
+			break;
+		case "MANAGERID":
+			resultado = generateJson(empleadoService.getEmpleadosByManagerId(paginacion, id, pagina));
+			break;
+		case "LASTNAME":
+			resultado = generateJson(empleadoService.getEmpleadosLastName(paginacion, id, pagina));
+			break;
 		}
 		return resultado;
-		
-		
+
 	}
-	
+
 	public String generateJson(Object aSerializableObject) {
 		Map<String, Object> aMap = new HashMap<String, Object>();
 		aMap.put("result", "OK");
