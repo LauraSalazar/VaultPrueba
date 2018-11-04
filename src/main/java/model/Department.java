@@ -27,9 +27,6 @@ public class Department {
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Location location;
-	
-    @OneToMany(mappedBy = "department")
-    private Set<JobHistory> jobHistories;
 
 	public Department() {
 		super();

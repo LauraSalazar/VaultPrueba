@@ -22,9 +22,6 @@ public class Job {
 	@Column(name = "MAX_SALARY")
 	private Integer maxSalary;
 	
-    @OneToMany(mappedBy = "job")
-    private Set<JobHistory> orderItems;
-    
 	public Job() {
 		super();
 	}

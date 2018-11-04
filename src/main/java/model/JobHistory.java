@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -12,14 +13,17 @@ import javax.persistence.Table;
 @Table(name="JOB_HISTORY")
 public class JobHistory {
 
+	@Id
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Employee employee;
 	@Column(name = "START_DATE")
 	private LocalDate startDate;
 	@Column(name = "END_DATE")
 	private LocalDate endDate;
+	@Id
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Job job;
+	@Id
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Department department;
 	
