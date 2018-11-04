@@ -23,7 +23,7 @@ public class EmployeeResource {
 		empleadoService = new EmployeeService();
 	}
 
-	@RequestMapping(value="/insertarEmpleado/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}",method=RequestMethod.POST)
+	@RequestMapping(value="/insertarEmpleado/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}",method=RequestMethod.POST,produces = "application/json", headers = "Accept=application/json")
 	public String insertar(Map<String, Object> model,@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
 			@RequestParam("email") String email, @RequestParam("phoneNumber") String phoneNumber,
 			@RequestParam("hireDate") String hireDate, @RequestParam("salary") String salary,
