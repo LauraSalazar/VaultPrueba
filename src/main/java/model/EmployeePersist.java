@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class EmployeePersist extends Employee{
 	public EmployeePersist(String firstName, String lastName, String email, String phoneNumber, LocalDate hireDate, Job job,
-			Double salary, Double commissionPct, Employee manager, Department department) {
+			Double salary, Double commissionPct, Department department) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -14,7 +14,6 @@ public class EmployeePersist extends Employee{
 		this.job = job;
 		this.salary = salary;
 		this.commissionPct = commissionPct;
-		this.manager = manager;
 		this.department = department;
 	}
 }
