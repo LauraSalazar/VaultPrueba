@@ -69,7 +69,7 @@ public class GenerateDB {
         JobHistory jh8 = new JobHistory();
         
         
-        Employee e1=null,e2=null,e3=null,e4=null,e5=null,e6=null,edumy=new Employee();
+        Employee e1=null,e2=null,e3=null,e4=null,e5=null,e6=null;
         	
         e1 = new Employee("Ana","Gomez","email1","number1",(LocalDate.parse("2009-12-31")),j1,new Double(1500.00),new Double(20.00),null,d1);
         
@@ -145,7 +145,6 @@ public class GenerateDB {
         
 
         EmployeeDAO eDAO = new EmployeeDAO();
-        eDAO.create(edumy);
         eDAO.create(e1);
         eDAO.create(e2);
         eDAO.create(e3);
