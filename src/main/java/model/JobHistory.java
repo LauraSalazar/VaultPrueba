@@ -18,7 +18,7 @@ public class JobHistory implements Serializable{
 	@Id
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "EMPLOYEE_ID")
-    private Employee employee;
+    transient private Employee employee;
 	@Id
 	@Column(name = "START_DATE")
 	private LocalDate startDate;
