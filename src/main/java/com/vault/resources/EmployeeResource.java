@@ -21,7 +21,7 @@ public class EmployeeResource {
 		empleadoService = new EmployeeService();
 	}
 
-	@RequestMapping("/insertarEmpleado/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}")
+	@RequestMapping(value="/insertarEmpleado/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}")
 	public String insertar(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
 			@RequestParam("email") String email, @RequestParam("phoneNumber") String phoneNumber,
 			@RequestParam("hireDate") String hireDate, @RequestParam("salary") String salary,
