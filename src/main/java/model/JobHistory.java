@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
@@ -11,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="JOB_HISTORY")
-public class JobHistory {
+public class JobHistory implements Serializable{
 
 	@Id
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
