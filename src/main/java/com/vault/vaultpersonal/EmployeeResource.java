@@ -44,15 +44,24 @@ public class EmployeeResource {
 			@PathVariable("hireDate") String hireDate, @PathVariable("salary") String salary,
 			@PathVariable("commissionPct") String commissionPct) {
 
-		return generateJson(empleadoService.modificarEmpleado(id, firstName, lastName, email, phoneNumber, hireDate,
-				salary, commissionPct));
+		EmployeeDTO empDTO = empleadoService.modificarEmpleado(id, firstName, lastName, email, phoneNumber, hireDate,
+				salary, commissionPct);
+		if (empDTO == null)
+		{
+			return "No existe el Empleado";
+		}
+		return "Se ha modificado el empleado";
+
 	}
 
 	// Elimina el empleado con id {id}
 	@RequestMapping(value = "/eliminarEmpleado/{id}", produces = "application/json")
 	public String eliminar(Map<String, Object> model, @PathVariable("id") Integer id) {
 
-		return generateJson(empleadoService.eliminarEmpleado(id));
+		if (empleadoService.eliminarEmpleado(id) == null) {
+			return "No existe el Empleado";
+		}
+		return "Se ha eliminado el empleado";
 	}
 	
 	// Retorna el empleado con id {id}
@@ -62,7 +71,7 @@ public class EmployeeResource {
 		EmployeeDTO empDTO = null;
 		empDTO = empleadoService.obtenerEmpleado(id);
 		if (empDTO == null) {
-			return generateJson("El empleado no existe");
+			return ("El empleado no existe");
 		}
 		return generateJson(empDTO);
 	}

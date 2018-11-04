@@ -25,7 +25,7 @@ public class EmployeeService {
 		return new EmployeeDTO(emp);
 	}
 
-	public String modificarEmpleado(Integer id, String firstName, String lastName, String email,
+	public EmployeeDTO modificarEmpleado(Integer id, String firstName, String lastName, String email,
 			String phoneNumber, String hireDate, String salary, String commissionPct) {
 
 		Employee emp = null;
@@ -41,14 +41,12 @@ public class EmployeeService {
 			emp.setSalary(new Double(salary));
 			emp.setCommissionPct(new Double(commissionPct));
 			empDAO.update(emp);
+			return new EmployeeDTO(emp);
 		}
-		else {
-			return "No existe el Empleado";
-		}
-		return "Se ha modificado el empleado";
+		return null;
 	}
 	
-	public String eliminarEmpleado(Integer id) {
+	public Employee eliminarEmpleado(Integer id) {
 
 		Employee emp = null;
 
@@ -56,11 +54,10 @@ public class EmployeeService {
 
 		if (emp != null) {
 			empDAO.delete(emp);
+		    return emp;
 		}
-		else {
-			return "No existe el Empleado";
-		}
-		return "Se ha eliminado el empleado";
+		return null;
+		
 	}
 	
 	public EmployeeDTO obtenerEmpleado(Integer id) {
