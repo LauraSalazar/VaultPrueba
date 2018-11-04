@@ -46,8 +46,7 @@ public class Employee {
 	@JoinColumn(name = "DEPARTMENT_ID")
 	private Department department;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "JOB_HISTORY")
+	@OneToMany(mappedBy = "Employee",cascade = CascadeType.ALL)
 	Set<JobHistory> jobHistories;
 
 	public Employee() {

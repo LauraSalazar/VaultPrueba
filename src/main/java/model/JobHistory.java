@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 @Entity(name = "JOB_HISTORY")
 public class JobHistory {
 
-	private Integer id;
+
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "EMPLOYEE_ID")
 	private Employee employee;
@@ -70,14 +70,6 @@ public class JobHistory {
 	}
 	public void setDepartment(Department department) {
 		this.department = department;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 	
 	
