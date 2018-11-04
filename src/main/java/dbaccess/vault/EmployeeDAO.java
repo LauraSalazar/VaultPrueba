@@ -55,7 +55,10 @@ public class EmployeeDAO extends GenericDAO {
 		 String query = "from EMPLOYEES c left join c.job j where j.id = :id";
 		 Query a = this.getEntityManager().createQuery(query).setParameter("id", id);
 		 List<Employee>  employeeList = (List<Employee>) a.getResultList();
-		 
+		 for(Employee employee : employeeList) {
+			 System.out.println("Employee FirstName: " + employee.getFirstName());
+			 System.out.println("Employee id" + employee.getId());
+		 }
 		 return employeeList;
 	}
 	
