@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class JobHistory implements Serializable{
 
 	@Id
-	@JoinColumn(name = "EMPLOYEE_ID")
+	@Column(name = "EMPLOYEE_ID")
     private Integer employee;
 	@Id
 	@Column(name = "START_DATE")

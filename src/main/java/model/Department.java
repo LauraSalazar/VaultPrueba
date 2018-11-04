@@ -18,7 +18,7 @@ public class Department {
 	@Column(name = "DEPARTMENT_NAME")
 	private String departmentName;
 
-	@JoinColumn(name = "MANAGER_ID")
+	@Column(name = "MANAGER_ID")
     private Integer manager;
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
