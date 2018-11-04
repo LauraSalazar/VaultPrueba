@@ -45,7 +45,7 @@ public class Employee {
 	@JoinColumn(name = "DEPARTMENT_ID")
 	private Department department;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany()
 	private List<JobHistory> jobHistories;
 
 	public Employee() {
