@@ -1,7 +1,8 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,8 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -47,7 +46,7 @@ public class Employee {
 	private Department department;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	Set<JobHistory> jobHistories;
+	List<JobHistory> jobHistories = new ArrayList<JobHistory>();
 
 	public Employee() {
 		super();
@@ -174,11 +173,11 @@ public class Employee {
 		this.jobHistories.add(jh);
 	}
 
-	public Set<JobHistory> getJobHistories() {
+	public List<JobHistory> getJobHistories() {
 		return jobHistories;
 	}
 
-	public void setJobHistories(Set<JobHistory> jobHistories) {
+	public void setJobHistories(List<JobHistory> jobHistories) {
 		this.jobHistories = jobHistories;
 	}
 
