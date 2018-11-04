@@ -29,5 +29,11 @@ public class EmployeeDAO extends GenericDAO {
 		this.getEntityManager().getTransaction().commit();
 	}
 	
+	public void delete(Employee emp){	
+		this.getEntityManager().getTransaction().begin();
+		this.getEntityManager().remove(emp);
+		this.getEntityManager().getTransaction().commit();
+	}
+	
 	
 }

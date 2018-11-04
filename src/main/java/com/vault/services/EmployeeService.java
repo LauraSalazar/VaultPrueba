@@ -47,4 +47,19 @@ public class EmployeeService {
 		}
 		return "Se ha modificado el empleado";
 	}
+	
+	public String eliminarEmpleado(Integer id) {
+
+		Employee emp = null;
+
+		emp = empDAO.findById(id);
+
+		if (emp != null) {
+			empDAO.delete(emp);
+		}
+		else {
+			return "No existe el Empleado";
+		}
+		return "Se ha modificado el empleado";
+	}
 }

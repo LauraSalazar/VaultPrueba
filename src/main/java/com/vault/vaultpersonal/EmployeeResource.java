@@ -43,6 +43,12 @@ public class EmployeeResource {
 		return generateJson(empleadoService.modificarEmpleado(id,firstName,lastName,email,phoneNumber,hireDate,salary,commissionPct));
 	}
 	
+	//Elimina el empleado con id {id}
+	@RequestMapping(value="/eliminarEmpleado/{id}",produces = "application/json")
+	public String eliminar(Map<String, Object> model,@PathVariable("id") Integer id) {
+
+		return generateJson(empleadoService.eliminarEmpleado(id));
+	}
 	  public String generateJson(Object aSerializableObject) {
 	      Map<String,Object> aMap = new HashMap<String,Object>();
 	      aMap.put("result", "OK");
