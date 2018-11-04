@@ -80,7 +80,7 @@ public class EmployeeService {
 		return empDAO.getEmpleadosByManagerId(id);
 	}
 	
-	public List<Employee> getEmpleadosLastName(Integer paginacion,Integer id, Integer pagina){
-		return empDAO.getEmpleadosByManagerId(id);
+	public List<Employee> getEmpleadosByLastName(Integer paginacion,String lastName, Integer pagina){
+		return empDAO.getEmpleadosByLastName(lastName);
 	}
 }

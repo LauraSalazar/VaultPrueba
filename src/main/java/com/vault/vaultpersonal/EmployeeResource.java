@@ -80,19 +80,19 @@ public class EmployeeResource {
 	// Retorna el una lista de empleados con sus objetos ordenados y paginados
 	@RequestMapping(value = "/obtenerListadoEmpleados/{tipofiltro}/{id}/{paginacion}/{pagina}", produces = "application/json")
 	public String obtenerListadoEmpleados(Map<String, Object> model, @PathVariable("tipofiltro") String tipoFiltro,
-			@PathVariable("id") Integer id, @PathVariable("paginacion") Integer paginacion,
+			@PathVariable("id") String id, @PathVariable("paginacion") Integer paginacion,
 			@PathVariable("pagina") Integer pagina) {
 
 		String resultado = null;
 		switch (tipoFiltro) {
 		case "JOBID":
-			resultado = generateJson(empleadoService.getEmpleadosByJobId(paginacion, id, pagina));
+			resultado = generateJson(empleadoService.getEmpleadosByJobId(paginacion, Integer.parseInt(id), pagina));
 			break;
 		case "MANAGERID":
-			resultado = generateJson(empleadoService.getEmpleadosByManagerId(paginacion, id, pagina));
+			resultado = generateJson(empleadoService.getEmpleadosByManagerId(paginacion, Integer.parseInt(id), pagina));
 			break;
 		case "LASTNAME":
-			resultado = generateJson(empleadoService.getEmpleadosLastName(paginacion, id, pagina));
+			resultado = generateJson(empleadoService.getEmpleadosByLastName(paginacion, id, pagina));
 			break;
 		}
 		return resultado;
