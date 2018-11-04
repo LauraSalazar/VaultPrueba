@@ -65,11 +65,11 @@ public class EmployeeDAO extends GenericDAO {
 			 System.out.println("Employee FirstName: " + employee.getFirstName());
 			 System.out.println("Region: " + employee.getDepartment().getLocation().getCountry().getRegion().getName());
 			 System.out.println("Employee id" + employee.getId());
-			 System.out.println("Lista history: " + employee.getJobHistories());
+/*			 System.out.println("Lista history: " + employee.getJobHistories());
 			 for (JobHistory jh : employee.getJobHistories()) {
 				 
 				 System.out.println("Elemento employee firstName de history " + jh.getEmployee().getFirstName());
-			 }
+			 }*/
 		 }
 		 return employeeList;
 	}
