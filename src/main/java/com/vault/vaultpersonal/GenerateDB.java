@@ -106,6 +106,7 @@ public class GenerateDB {
         jh1.setEmployee(e1);
         jh1.setStartDate((LocalDate.parse( "2008-12-31")));
         jh1.setEndDate((LocalDate.parse( "2011-12-31")));
+        jh1.setDepartment(d1);
         jh1.setJob(j2);
         
         System.out.println("Antes del primer addHistory " + e1.getJobHistories());
@@ -114,6 +115,7 @@ public class GenerateDB {
         jh2.setEmployee(e1);
         jh2.setStartDate((LocalDate.parse( "2011-12-31")));
         jh2.setEndDate((LocalDate.parse( "2018-12-31")));
+        jh2.setDepartment(d2);
         jh2.setJob(j1);
         
         e1.addJobHistory(jh2);
@@ -121,6 +123,7 @@ public class GenerateDB {
         jh3.setEmployee(e2);
         jh3.setStartDate((LocalDate.parse( "2008-12-31")));
         jh3.setEndDate((LocalDate.parse( "2011-12-31")));
+        jh3.setDepartment(d3);
         jh3.setJob(j2);
         
         e2.addJobHistory(jh3);
@@ -128,6 +131,7 @@ public class GenerateDB {
         jh4.setEmployee(e2);
         jh4.setStartDate((LocalDate.parse( "2011-12-31")));
         jh4.setEndDate((LocalDate.parse( "2018-12-31")));
+        jh4.setDepartment(d4);
         jh4.setJob(j1);
         
         e2.addJobHistory(jh4);
@@ -135,6 +139,7 @@ public class GenerateDB {
         jh5.setEmployee(e3);
         jh5.setStartDate((LocalDate.parse("2001-12-31")));
         jh5.setEndDate((LocalDate.parse("2018-12-31")));
+        jh5.setDepartment(d1);
         jh5.setJob(j2);
         
         e3.addJobHistory(jh5);
@@ -142,6 +147,7 @@ public class GenerateDB {
         jh6.setEmployee(e4);
         jh6.setStartDate((LocalDate.parse( "2008-12-31")));
         jh6.setEndDate((LocalDate.parse( "2018-12-31")));
+        jh6.setDepartment(d2);
         jh6.setJob(j2);
         
         e4.addJobHistory(jh6);
@@ -149,6 +155,7 @@ public class GenerateDB {
         jh7.setEmployee(e5);
         jh7.setStartDate((LocalDate.parse( "2006-12-31")));
         jh7.setEndDate((LocalDate.parse( "2018-12-31")));
+        jh7.setDepartment(d3);
         jh7.setJob(j2);
         
         e5.addJobHistory(jh7);
@@ -156,6 +163,7 @@ public class GenerateDB {
         jh8.setEmployee(e6);
         jh8.setStartDate((LocalDate.parse( "2005-12-31")));
         jh8.setEndDate((LocalDate.parse( "2018-12-31")));
+        jh8.setDepartment(d4);
         jh8.setJob(j2);
         
         e6.addJobHistory(jh8);
