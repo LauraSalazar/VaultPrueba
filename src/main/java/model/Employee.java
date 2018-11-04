@@ -20,33 +20,33 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "EMPLOYEE_ID")
-	private Integer id;
+	public Integer id;
 	@Column(name = "FIRST_NAME")
-	private String firstName;
+	public String firstName;
 	@Column(name = "LAST_NAME")
-	private String lastName;
+	public String lastName;
 	@Column(name = "EMAIL")
-	private String email;
+	public String email;
 	@Column(name = "PHONE_NUMBER")
-	private String phoneNumber;
+	public String phoneNumber;
 	@Column(name = "HIRE_DATE")
-	private LocalDate hireDate;
+	public LocalDate hireDate;
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "JOB_ID")
-	private Job job;
+	public Job job;
 	@Column(name = "SALARY")
-	private Double salary;
+	public Double salary;
 	@Column(name = "COMMISSION_PCT")
-	private Double commissionPct;
+	public Double commissionPct;
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANAGER_ID")
-	private Employee manager;
+	public Employee manager;
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "DEPARTMENT_ID")
-	private Department department;
+	public Department department;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	private List<JobHistory> jobHistories;
+	public List<JobHistory> jobHistories;
 
 	public Employee() {
 		super();

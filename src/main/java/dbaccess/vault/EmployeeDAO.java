@@ -1,5 +1,6 @@
 package dbaccess.vault;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -7,7 +8,10 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import model.Department;
 import model.Employee;
+import model.EmployeePersist;
+import model.Job;
 import model.JobHistory;
 
 @Repository
@@ -53,9 +57,9 @@ public class EmployeeDAO extends GenericDAO {
 	public List<Employee> getEmpleadosByJobId(Integer id){
 
 		 //String query = "select new model.Employee(c.firstName,c.lastName,c.email,c.phoneNumber,c.hireDate,c.job,c.salary,c.commissionPct,c.department,c.jobHistories) from EMPLOYEES c join c.job j where j.id = :id";
-		String query = "from EMPLOYEES"; 
+		String query = "select new model.EmployeePersist( c.firstName,  c.lastName,  c.email,  c.phoneNumber,  c.hireDate, c.job, c.salary, c.commissionPct, c.manager,  c.department) from EMPLOYEES c"; 
 		Query a = this.getEntityManager().createQuery(query);//.setParameter("id", id);
-		 List<Employee>  employeeList = (List<Employee>) a.getResultList();
+		 List<EmployeePersist>  employeeList = (List<EmployeePersist>) a.getResultList();
 		 System.out.println("Antes de entrar al for: " );		 
 		 for(Employee employee : employeeList) {
 			 System.out.println("Employee FirstName: " + employee.getFirstName());
