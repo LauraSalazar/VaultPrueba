@@ -47,7 +47,7 @@ public class EmployeeService {
 		return null;
 	}
 	
-	public Employee eliminarEmpleado(Integer id) {
+	public void eliminarEmpleado(Integer id) {
 
 		Employee emp = null;
 
@@ -55,10 +55,7 @@ public class EmployeeService {
 
 		if (emp != null) {
 			empDAO.delete(emp);
-			emp = new Employee();
-		    return emp;
 		}
-		return null;
 		
 	}
 	
