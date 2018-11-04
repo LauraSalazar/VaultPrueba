@@ -89,7 +89,7 @@ public class GenerateDB {
         System.out.println("El nombre de ana es: " + e1.getFirstName());
         
         d1.setDepartmentName("department1");
-        d1.setManager(e1);
+        d1.setManager(e2);
         d1.setLocation(l3);
         
         d2.setDepartmentName("department2");
@@ -97,7 +97,7 @@ public class GenerateDB {
         d2.setLocation(l7);
         
         d3.setDepartmentName("department3");
-        d3.setManager(e2);
+        d3.setManager(e1);
         d3.setLocation(l8);
         
         d4.setDepartmentName("department4");
