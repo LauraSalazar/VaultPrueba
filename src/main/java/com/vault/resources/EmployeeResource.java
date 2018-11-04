@@ -3,7 +3,7 @@ package com.vault.resources;
 import java.util.HashMap;
 import java.util.Map;
 
-
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 import com.vault.dto.EmployeeDTO;
 import com.vault.services.EmployeeService;
 
-@RestController
+@Controller
 public class EmployeeResource {
 
 	EmployeeService empleadoService;
