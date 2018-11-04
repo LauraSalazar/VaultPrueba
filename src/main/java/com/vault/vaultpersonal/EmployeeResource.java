@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,10 +25,10 @@ public class EmployeeResource {
 	}
 
 	@RequestMapping(value="/insertarEmpleado/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}",method=RequestMethod.POST,produces = "application/json", headers = "Accept=application/json")
-	public String insertar(Map<String, Object> model,@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
-			@RequestParam("email") String email, @RequestParam("phoneNumber") String phoneNumber,
-			@RequestParam("hireDate") String hireDate, @RequestParam("salary") String salary,
-			@RequestParam("commissionPct") String commissionPct) {
+	public String insertar(Map<String, Object> model,@PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName,
+			@PathVariable("email") String email, @PathVariable("phoneNumber") String phoneNumber,
+			@PathVariable("hireDate") String hireDate, @PathVariable("salary") String salary,
+			@PathVariable("commissionPct") String commissionPct) {
 
 		EmployeeDTO empDTO = empleadoService.insertarEmpleado(firstName,lastName,email,phoneNumber,hireDate,salary,commissionPct);
 
