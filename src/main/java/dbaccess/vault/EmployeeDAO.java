@@ -52,7 +52,7 @@ public class EmployeeDAO extends GenericDAO {
 	@Transactional
 	public List<Employee> getEmpleadosByJobId(Integer id){
 
-		 String query = "select new model.Employee(c.firstName,c.lastName,c.email,c.phoneNumber,c.hireDate,c.job,c.salary,c.commissionPct,c.manager,c.department) from EMPLOYEES ";
+		 String query = "select new model.Employee(c.firstName,c.lastName,c.email,c.phoneNumber,c.hireDate,c.job,c.salary,c.commissionPct,c.manager,c.department) from EMPLOYEES c";
 		 Query a = this.getEntityManager().createQuery(query);//.setParameter("id", id);
 		 List<Employee>  employeeList = (List<Employee>) a.getResultList();
 		 System.out.println("Antes de entrar al for: " );		 
