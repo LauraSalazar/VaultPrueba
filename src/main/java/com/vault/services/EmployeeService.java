@@ -20,7 +20,7 @@ public class EmployeeService {
 			String hireDate, String salary, String commissionPct) {
 
 		Employee emp = new Employee(firstName, lastName, email, phoneNumber, LocalDate.parse(hireDate), null,
-				new Double(salary), new Double(commissionPct), null, null,null);
+				new Double(salary), new Double(commissionPct), null, null);
 
 		empDAO.create(emp);
 

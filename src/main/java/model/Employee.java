@@ -44,16 +44,14 @@ public class Employee {
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "DEPARTMENT_ID")
 	public Department department;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	public List<JobHistory> jobHistories;
+
 
 	public Employee() {
 		super();
 	}
 
 	public Employee(String firstName, String lastName, String email, String phoneNumber, LocalDate hireDate, Job job,
-			Double salary, Double commissionPct, Employee manager, Department department, List<JobHistory> jobHistories) {
+			Double salary, Double commissionPct, Employee manager, Department department) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -65,11 +63,10 @@ public class Employee {
 		this.commissionPct = commissionPct;
 		this.manager = manager;
 		this.department = department;
-		this.jobHistories = jobHistories;
 	}
 
 	public Employee( String firstName, String lastName, String email, String phoneNumber, LocalDate hireDate, Job job,
-			Double salary, Double commissionPct, Department department,List<JobHistory> jobHistories) {
+			Double salary, Double commissionPct, Department department) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -80,7 +77,6 @@ public class Employee {
 		this.salary = salary;
 		this.commissionPct = commissionPct;
 		this.department = department;
-		this.jobHistories = jobHistories;
 	}
 
 	public String getLastName() {
@@ -169,18 +165,6 @@ public class Employee {
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
-	}
-	
-	public void addJobHistory(JobHistory jh){
-		this.jobHistories.add(jh);
-	}
-
-	public List<JobHistory> getJobHistories() {
-		return jobHistories;
-	}
-
-	public void setJobHistories(List<JobHistory> jobHistories) {
-		this.jobHistories = jobHistories;
 	}
 
 }
