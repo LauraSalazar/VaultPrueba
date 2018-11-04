@@ -78,7 +78,7 @@ public class EmployeeResource {
 
 	// Retorna el una lista de empleados con sus objetos ordenados y paginados
 	@RequestMapping(value = "/obtenerListadoEmpleados/{tipofiltro}/{id}/{paginacion}/{pagina}", produces = "application/json")
-	public String obtenerListadoEmpleados(Map<String, Object> model, @PathVariable("tipoFiltro") String tipoFiltro,@PathVariable("id") Integer id,@PathVariable("paginacion") Integer paginacion,@PathVariable("pagina") Integer pagina) {
+	public String obtenerListadoEmpleados(Map<String, Object> model, @PathVariable("tipofiltro") String tipoFiltro,@PathVariable("id") Integer id,@PathVariable("paginacion") Integer paginacion,@PathVariable("pagina") Integer pagina) {
 
 		String resultado = null;
 		switch (tipoFiltro) {
