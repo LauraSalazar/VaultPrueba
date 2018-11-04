@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import model.Employee;
+import model.JobHistory;
 
 @Repository
 public class EmployeeDAO extends GenericDAO {
@@ -61,6 +62,11 @@ public class EmployeeDAO extends GenericDAO {
 			 System.out.println("Region: " + employee.getDepartment().getLocation().getCountry().getRegion().getName());
 			 System.out.println("Employee id" + employee.getId());
 			 System.out.println("Lista history: " + employee.getJobHistories());
+	
+			 for (JobHistory jh : employee.getJobHistories()) {
+				 
+				 System.out.println("Elemento employee firstName de history " + jh.getEmployee().getFirstName());
+			 }
 		 }
 		 return employeeList;
 	}
