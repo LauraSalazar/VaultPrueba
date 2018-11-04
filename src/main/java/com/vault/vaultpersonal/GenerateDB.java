@@ -155,6 +155,6 @@ public class GenerateDB {
         catch (ParseException e) {
         	e.printStackTrace();
         } 
-        return "Greetings from Spring Boot! 2";
+        return "Base Generada!!";
     }
 }
