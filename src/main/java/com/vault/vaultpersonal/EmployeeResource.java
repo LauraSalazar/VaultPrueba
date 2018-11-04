@@ -55,7 +55,7 @@ public class EmployeeResource {
 	}
 
 	// Elimina el empleado con id {id}
-	@RequestMapping(value = "/eliminarEmpleado/{id}", produces = "application/json")
+	@RequestMapping(value = "/eliminarEmpleado/{id}")
 	public String eliminar(Map<String, Object> model, @PathVariable("id") Integer id) {
 
 	if (empleadoService.obtenerEmpleado(id)	== null) {
