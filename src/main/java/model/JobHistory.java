@@ -13,9 +13,7 @@ import javax.persistence.ManyToOne;
 
 @Entity(name = "JOB_HISTORY")
 public class JobHistory {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "JOBHISTORY_ID")
+
 	private Integer id;
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "EMPLOYEE_ID")

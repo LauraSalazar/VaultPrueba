@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,11 +10,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity(name = "EMPLOYEES")
 public class Employee {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "EMPLOYEE_ID")
@@ -37,15 +41,19 @@ public class Employee {
 	private Double commissionPct;
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANAGER_ID")
-    private Employee manager;
+	private Employee manager;
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "DEPARTMENT_ID")
 	private Department department;
 	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "JOB_HISTORY")
+	Set<JobHistory> jobHistories;
+
 	public Employee() {
 		super();
 	}
-	
+
 	public Employee(String firstName, String lastName, String email, String phoneNumber, LocalDate hireDate, Job job,
 			Double salary, Double commissionPct, Employee manager, Department department) {
 		super();
@@ -60,6 +68,7 @@ public class Employee {
 		this.manager = manager;
 		this.department = department;
 	}
+
 	public Employee(String firstName, String lastName, String email, String phoneNumber, LocalDate hireDate, Job job,
 			Double salary, Double commissionPct, Department department) {
 		super();
@@ -73,72 +82,105 @@ public class Employee {
 		this.commissionPct = commissionPct;
 		this.department = department;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
+
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
 	public LocalDate getHireDate() {
 		return hireDate;
 	}
+
 	public void setHireDate(LocalDate hireDate) {
 		this.hireDate = hireDate;
 	}
+
 	public Job getJob() {
 		return job;
 	}
+
 	public void setJob(Job job) {
 		this.job = job;
 	}
+
 	public Double getSalary() {
 		return salary;
 	}
+
 	public void setSalary(Double salary) {
 		this.salary = salary;
 	}
+
 	public Double getCommissionPct() {
 		return commissionPct;
 	}
+
 	public void setCommissionPct(Double commissionPct) {
 		this.commissionPct = commissionPct;
 	}
+
 	public Employee getManager() {
 		return manager;
 	}
+
 	public void setManager(Employee manager) {
 		this.manager = manager;
 	}
+
 	public Department getDepartment() {
 		return department;
 	}
+
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
 	
+	public void addJobHistory(JobHistory jh){
+		this.jobHistories.add(jh);
+	}
+
+	public Set<JobHistory> getJobHistories() {
+		return jobHistories;
+	}
+
+	public void setJobHistories(Set<JobHistory> jobHistories) {
+		this.jobHistories = jobHistories;
+	}
+
 }
