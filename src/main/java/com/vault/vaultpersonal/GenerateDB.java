@@ -1,6 +1,7 @@
 package com.vault.vaultpersonal;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import org.springframework.expression.ParseException;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -71,17 +72,17 @@ public class GenerateDB {
         
         Employee e1=null,e2=null,e3=null,e4=null,e5=null,e6=null;
         	
-        e1 = new Employee("Ana","Gomez","email1","number1",(LocalDate.parse("2009-12-31")),j1,new Double(1500.00),new Double(20.00),null,d1);
+        e1 = new Employee("Ana","Gomez","email1","number1",(LocalDate.parse("2009-12-31")),j1,new Double(1500.00),new Double(20.00),null,d1,new ArrayList<JobHistory>());
         
-        e2 = new Employee("Pedro","Perez","email2","number2",(LocalDate.parse("2010-12-31")),j1,new Double(2500.00),new Double(20.00),null,d2);;
+        e2 = new Employee("Pedro","Perez","email2","number2",(LocalDate.parse("2010-12-31")),j1,new Double(2500.00),new Double(20.00),null,d2,new ArrayList<JobHistory>());;
         
-        e3 = new Employee("Juan","Aguirre","email3","number3",(LocalDate.parse( "2001-12-31")),j2,new Double(950.00),new Double(15.00),e1,d3);;
+        e3 = new Employee("Juan","Aguirre","email3","number3",(LocalDate.parse( "2001-12-31")),j2,new Double(950.00),new Double(15.00),e1,d3,new ArrayList<JobHistory>());;
         
-        e4 = new Employee("Employee4","LastName4","email4","number4",(LocalDate.parse( "2008-12-31")),j2,new Double(960.00),new Double(15.00),e1,d4);
+        e4 = new Employee("Employee4","LastName4","email4","number4",(LocalDate.parse( "2008-12-31")),j2,new Double(960.00),new Double(15.00),e1,d4,new ArrayList<JobHistory>());
         
-        e5 = new Employee("Employee5","LastName5","email5","number5",(LocalDate.parse( "2006-12-31")),j2,new Double(970.00),new Double(15.00),e2,d2);
+        e5 = new Employee("Employee5","LastName5","email5","number5",(LocalDate.parse( "2006-12-31")),j2,new Double(970.00),new Double(15.00),e2,d2,new ArrayList<JobHistory>());
         
-        e6 = new Employee("Employee6","LastName6","email6","number6",(LocalDate.parse( "2005-12-31")),j2,new Double(980.00),new Double(15.00),e2,d3);
+        e6 = new Employee("Employee6","LastName6","email6","number6",(LocalDate.parse( "2005-12-31")),j2,new Double(980.00),new Double(15.00),e2,d3,new ArrayList<JobHistory>());
         
 
         System.out.println("Antes de imprimir el nombre de Ana");

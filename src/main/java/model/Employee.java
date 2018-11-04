@@ -46,14 +46,14 @@ public class Employee {
 	private Department department;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	List<JobHistory> jobHistories = new ArrayList<JobHistory>();
+	private List<JobHistory> jobHistories;
 
 	public Employee() {
 		super();
 	}
 
 	public Employee(String firstName, String lastName, String email, String phoneNumber, LocalDate hireDate, Job job,
-			Double salary, Double commissionPct, Employee manager, Department department) {
+			Double salary, Double commissionPct, Employee manager, Department department, List<JobHistory> jobHistories) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -65,10 +65,11 @@ public class Employee {
 		this.commissionPct = commissionPct;
 		this.manager = manager;
 		this.department = department;
+		this.jobHistories = jobHistories;
 	}
 
-	public Employee(String firstName, String lastName, String email, String phoneNumber, LocalDate hireDate, Job job,
-			Double salary, Double commissionPct, Department department, List<JobHistory> jobHistories) {
+	public Employee( String firstName, String lastName, String email, String phoneNumber, LocalDate hireDate, Job job,
+			Double salary, Double commissionPct, Department department,List<JobHistory> jobHistories) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
