@@ -37,7 +37,7 @@ public class Employee {
 	private Double commissionPct;
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANAGER_ID")
-	private Employee manager;
+    private Employee manager;
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "DEPARTMENT_ID")
 	private Department department;

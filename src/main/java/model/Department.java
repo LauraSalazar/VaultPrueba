@@ -20,7 +20,7 @@ public class Department {
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANAGER_ID")
-	private Employee manager;
+	transient private Employee manager;
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Location location;
