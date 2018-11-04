@@ -1,7 +1,6 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -46,7 +45,8 @@ public class Employee {
 	private Department department;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	private List<JobHistory> jobHistories;
+	@Column(nullable = true)
+	transient private List<JobHistory> jobHistories;
 
 	public Employee() {
 		super();

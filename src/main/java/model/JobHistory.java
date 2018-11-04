@@ -16,8 +16,9 @@ import javax.persistence.Table;
 public class JobHistory implements Serializable{
 
 	@Id
-	@Column(name = "EMPLOYEE_ID")
-    private Integer employee;
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "EMPLOYEE_ID")
+    private Employee employee;
 	@Id
 	@Column(name = "START_DATE")
 	private LocalDate startDate;
@@ -34,7 +35,7 @@ public class JobHistory implements Serializable{
 		super();
 	}
 	
-	public JobHistory(Integer employee, LocalDate startDate, LocalDate endDate, Job job, Department department) {
+	public JobHistory(Employee employee, LocalDate startDate, LocalDate endDate, Job job, Department department) {
 		super();
 		this.employee = employee;
 		this.startDate = startDate;
@@ -42,10 +43,10 @@ public class JobHistory implements Serializable{
 		this.job = job;
 		this.department = department;
 	}
-	public Integer getEmployee() {
+	public Employee getEmployee() {
 		return employee;
 	}
-	public void setEmployee(Integer employee) {
+	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
 	public LocalDate getStartDate() {
