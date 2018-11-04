@@ -22,6 +22,7 @@ public class EmployeeDAO extends GenericDAO {
 
 	}
 	
+	@Transactional
 	public Employee findById(Integer id){	
 		Employee emp = null;
 		String query = "from EMPLOYEES a where a.id = :id ";
@@ -34,18 +35,21 @@ public class EmployeeDAO extends GenericDAO {
 		return null;
 	}
 	
+	@Transactional
 	public void update(Employee emp){	
 		this.getEntityManager().getTransaction().begin();
 		this.getEntityManager().persist(emp);
 		this.getEntityManager().getTransaction().commit();
 	}
 	
+	@Transactional
 	public void delete(Employee emp){	
 		this.getEntityManager().getTransaction().begin();
 		this.getEntityManager().remove(emp);
 		this.getEntityManager().getTransaction().commit();
 	}
 	
+	@Transactional
 	public List<Employee> getEmpleadosByJobId(Integer id){
 
 		 String query = "from EMPLOYEES c join c.job j where j.id = :id";
