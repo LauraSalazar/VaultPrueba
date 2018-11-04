@@ -33,6 +33,16 @@ public class EmployeeResource {
 		return generateJson(empDTO);
 	}
 	
+	//Modifica un empleado con los parametros {id}/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}"
+	@RequestMapping(value="/modificarEmpleado/{id}/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}",produces = "application/json")
+	public String modificar(Map<String, Object> model,@PathVariable("id") Integer id,@PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName,
+			@PathVariable("email") String email, @PathVariable("phoneNumber") String phoneNumber,
+			@PathVariable("hireDate") String hireDate, @PathVariable("salary") String salary,
+			@PathVariable("commissionPct") String commissionPct) {
+
+		return generateJson(empleadoService.modificarEmpleado(id,firstName,lastName,email,phoneNumber,hireDate,salary,commissionPct));
+	}
+	
 	  public String generateJson(Object aSerializableObject) {
 	      Map<String,Object> aMap = new HashMap<String,Object>();
 	      aMap.put("result", "OK");
