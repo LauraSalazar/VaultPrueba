@@ -9,6 +9,7 @@ import com.vault.dto.EmployeeDTO;
 
 import dbaccess.vault.EmployeeDAO;
 import model.Employee;
+import model.EmployeePersist;
 
 @Service
 public class EmployeeService {
@@ -71,7 +72,7 @@ public class EmployeeService {
 		return empDTO;
 	}
 	
-	public List<Employee> getEmpleadosByJobId(Integer paginacion,Integer id, Integer pagina){
+	public List<EmployeePersist> getEmpleadosByJobId(Integer paginacion,Integer id, Integer pagina){
 		return empDAO.getEmpleadosByJobId(id);
 		
 	}

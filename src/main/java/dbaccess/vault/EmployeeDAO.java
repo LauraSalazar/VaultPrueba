@@ -54,7 +54,7 @@ public class EmployeeDAO extends GenericDAO {
 	}
 	
 	@Transactional
-	public List<Employee> getEmpleadosByJobId(Integer id){
+	public List<EmployeePersist> getEmpleadosByJobId(Integer id){
 
 		 //String query = "select new model.Employee(c.firstName,c.lastName,c.email,c.phoneNumber,c.hireDate,c.job,c.salary,c.commissionPct,c.department,c.jobHistories) from EMPLOYEES c join c.job j where j.id = :id";
 		String query = "select new model.EmployeePersist( c.firstName,  c.lastName,  c.email,  c.phoneNumber,  c.hireDate, c.job, c.salary, c.commissionPct, c.manager,  c.department) from EMPLOYEES c"; 
