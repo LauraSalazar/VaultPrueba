@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class JobHistory implements Serializable{
 
 	@Id
-	@ManyToOne(optional = false, cascade = CascadeType.ALL)
+	@ManyToOne(optional = false)
 	@JoinColumn(name = "EMPLOYEE_ID")
 	transient private Employee employee;
 	@Id
@@ -24,10 +24,10 @@ public class JobHistory implements Serializable{
 	private LocalDate startDate;
 	@Column(name = "END_DATE")
 	private LocalDate endDate;
-	@ManyToOne(optional = true, cascade = CascadeType.ALL)
+	@ManyToOne(optional = true)
 	@JoinColumn(name = "JOB_ID")
 	private Job job;
-	@ManyToOne(optional = true, cascade = CascadeType.ALL)
+	@ManyToOne(optional = true)
 	@JoinColumn(name = "DEPARTMENT_ID")
 	private Department department;
 	
