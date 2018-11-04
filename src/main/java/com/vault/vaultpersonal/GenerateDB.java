@@ -71,9 +71,9 @@ public class GenerateDB {
         
         Employee e1=null,e2=null,e3=null,e4=null,e5=null,e6=null,edumy=new Employee();
         	
-        e1 = new Employee("Ana","Gomez","email1","number1",(LocalDate.parse("2009-12-31")),j1,new Double(1500.00),new Double(20.00),edumy,d1);
+        e1 = new Employee("Ana","Gomez","email1","number1",(LocalDate.parse("2009-12-31")),j1,new Double(1500.00),new Double(20.00),null,d1);
         
-        e2 = new Employee("Pedro","Perez","email2","number2",(LocalDate.parse("2010-12-31")),j1,new Double(2500.00),new Double(20.00),edumy,d2);;
+        e2 = new Employee("Pedro","Perez","email2","number2",(LocalDate.parse("2010-12-31")),j1,new Double(2500.00),new Double(20.00),null,d2);;
         
         e3 = new Employee("Juan","Aguirre","email3","number3",(LocalDate.parse( "2001-12-31")),j2,new Double(950.00),new Double(15.00),e1,d3);;
         
