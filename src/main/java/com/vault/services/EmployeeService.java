@@ -60,6 +60,6 @@ public class EmployeeService {
 		else {
 			return "No existe el Empleado";
 		}
-		return "Se ha modificado el empleado";
+		return "Se ha eliminado el empleado";
 	}
 }
