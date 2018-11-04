@@ -46,7 +46,7 @@ public class Employee {
 	@JoinColumn(name = "DEPARTMENT_ID")
 	private Department department;
 	
-	@OneToMany(mappedBy = "employee")
+	@OneToMany
 	Set<JobHistory> jobHistories;
 
 	public Employee() {
