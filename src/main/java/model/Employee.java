@@ -60,6 +60,19 @@ public class Employee {
 		this.manager = manager;
 		this.department = department;
 	}
+	public Employee(String firstName, String lastName, String email, String phoneNumber, LocalDate hireDate, Job job,
+			Double salary, Double commissionPct, Department department) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.hireDate = hireDate;
+		this.job = job;
+		this.salary = salary;
+		this.commissionPct = commissionPct;
+		this.department = department;
+	}
 	public String getLastName() {
 		return lastName;
 	}
