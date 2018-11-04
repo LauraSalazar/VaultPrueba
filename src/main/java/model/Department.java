@@ -17,8 +17,7 @@ public class Department {
 	private Integer id;
 	@Column(name = "DEPARTMENT_NAME")
 	private String departmentName;
-	
-	@ManyToOne(optional = false, cascade = CascadeType.ALL)
+
 	@JoinColumn(name = "MANAGER_ID")
     private Integer manager;
 	
