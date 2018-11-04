@@ -10,8 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity(name = "JOB_HISTORY")
+@Entity
+@Table(name="JOB_HISTORY")
 public class JobHistory {
 
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
