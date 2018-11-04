@@ -68,7 +68,7 @@ public class Employee {
 	}
 
 	public Employee(String firstName, String lastName, String email, String phoneNumber, LocalDate hireDate, Job job,
-			Double salary, Double commissionPct, Department department) {
+			Double salary, Double commissionPct, Department department, List<JobHistory> jobHistories) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -79,6 +79,7 @@ public class Employee {
 		this.salary = salary;
 		this.commissionPct = commissionPct;
 		this.department = department;
+		this.jobHistories = jobHistories;
 	}
 
 	public String getLastName() {
