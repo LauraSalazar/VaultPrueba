@@ -18,9 +18,15 @@ public class EmployeeDAO extends GenericDAO {
 	}
 	
 	public Employee findById(Integer id){	
+		Employee emp = null;
 		String query = "from EMPLOYEES a where a.id = :id ";
-		Employee emp = (Employee) this.getEntityManager().createQuery(query).setParameter("id", id).getSingleResult();
-		return emp;
+		if (!this.getEntityManager().createQuery(query).setParameter("id", id).getResultList().isEmpty()){
+		emp = (Employee)this.getEntityManager().createQuery(query).setParameter("id", id).getSingleResult();
+		}
+		if (emp != null){
+			 return emp;
+					}
+		return null;
 	}
 	
 	public void update(Employee emp){	

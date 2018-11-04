@@ -62,4 +62,16 @@ public class EmployeeService {
 		}
 		return "Se ha eliminado el empleado";
 	}
+	
+	public EmployeeDTO obtenerEmpleado(Integer id) {
+
+		Employee emp = null;
+		EmployeeDTO empDTO = null; 
+		emp = empDAO.findById(id);
+
+		if (emp != null) {
+			empDTO = new EmployeeDTO(emp);
+		}
+		return empDTO;
+	}
 }

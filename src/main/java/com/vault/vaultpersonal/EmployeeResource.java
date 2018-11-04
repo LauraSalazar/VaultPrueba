@@ -21,38 +21,57 @@ public class EmployeeResource {
 		empleadoService = new EmployeeService();
 	}
 
-	//Inserta un empleado con los parametros {firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}"
-	@RequestMapping(value="/insertarEmpleado/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}",produces = "application/json")
-	public String insertar(Map<String, Object> model,@PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName,
-			@PathVariable("email") String email, @PathVariable("phoneNumber") String phoneNumber,
-			@PathVariable("hireDate") String hireDate, @PathVariable("salary") String salary,
-			@PathVariable("commissionPct") String commissionPct) {
+	// Inserta un empleado con los parametros
+	// {firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}"
+	@RequestMapping(value = "/insertarEmpleado/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}", produces = "application/json")
+	public String insertar(Map<String, Object> model, @PathVariable("firstName") String firstName,
+			@PathVariable("lastName") String lastName, @PathVariable("email") String email,
+			@PathVariable("phoneNumber") String phoneNumber, @PathVariable("hireDate") String hireDate,
+			@PathVariable("salary") String salary, @PathVariable("commissionPct") String commissionPct) {
 
-		EmployeeDTO empDTO = empleadoService.insertarEmpleado(firstName,lastName,email,phoneNumber,hireDate,salary,commissionPct);
+		EmployeeDTO empDTO = empleadoService.insertarEmpleado(firstName, lastName, email, phoneNumber, hireDate, salary,
+				commissionPct);
 
 		return generateJson(empDTO);
 	}
-	
-	//Modifica un empleado con los parametros {id}/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}"
-	@RequestMapping(value="/modificarEmpleado/{id}/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}",produces = "application/json")
-	public String modificar(Map<String, Object> model,@PathVariable("id") Integer id,@PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName,
+
+	// Modifica un empleado con los parametros
+	// {id}/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}"
+	@RequestMapping(value = "/modificarEmpleado/{id}/{firstName}/{lastName}/{email}/{phoneNumber}/{hireDate}/{salary}/{commissionPct}", produces = "application/json")
+	public String modificar(Map<String, Object> model, @PathVariable("id") Integer id,
+			@PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName,
 			@PathVariable("email") String email, @PathVariable("phoneNumber") String phoneNumber,
 			@PathVariable("hireDate") String hireDate, @PathVariable("salary") String salary,
 			@PathVariable("commissionPct") String commissionPct) {
 
-		return generateJson(empleadoService.modificarEmpleado(id,firstName,lastName,email,phoneNumber,hireDate,salary,commissionPct));
+		return generateJson(empleadoService.modificarEmpleado(id, firstName, lastName, email, phoneNumber, hireDate,
+				salary, commissionPct));
 	}
-	
-	//Elimina el empleado con id {id}
-	@RequestMapping(value="/eliminarEmpleado/{id}",produces = "application/json")
-	public String eliminar(Map<String, Object> model,@PathVariable("id") Integer id) {
+
+	// Elimina el empleado con id {id}
+	@RequestMapping(value = "/eliminarEmpleado/{id}", produces = "application/json")
+	public String eliminar(Map<String, Object> model, @PathVariable("id") Integer id) {
 
 		return generateJson(empleadoService.eliminarEmpleado(id));
 	}
-	  public String generateJson(Object aSerializableObject) {
-	      Map<String,Object> aMap = new HashMap<String,Object>();
-	      aMap.put("result", "OK");
-	      aMap.put("resultingObjects", aSerializableObject);
-	      return new Gson().toJson(aMap);
-	  }
+	
+	// Retorna el empleado con id {id}
+	@RequestMapping(value = "/obtenerEmpleado/{id}", produces = "application/json")
+	public String obtener(Map<String, Object> model, @PathVariable("id") Integer id) {
+
+		EmployeeDTO empDTO = null;
+		empDTO = empleadoService.obtenerEmpleado(id);
+		if (empDTO == null) {
+			return generateJson("El empleado no existe");
+		}
+		return generateJson(empDTO);
+	}
+
+
+	public String generateJson(Object aSerializableObject) {
+		Map<String, Object> aMap = new HashMap<String, Object>();
+		aMap.put("result", "OK");
+		aMap.put("resultingObjects", aSerializableObject);
+		return new Gson().toJson(aMap);
+	}
 }
