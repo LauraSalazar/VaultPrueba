@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity(name = "EMPLOYEES")
@@ -28,6 +29,7 @@ public class Employee {
 	@Column(name = "HIRE_DATE")
 	private LocalDate hireDate;
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
+	@JoinColumn(name = "JOB_ID")
 	private Job job;
 	@Column(name = "SALARY")
 	private Double salary;
