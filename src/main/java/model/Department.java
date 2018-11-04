@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity(name = "DEPARTMENTS")
@@ -18,6 +19,7 @@ public class Department {
 	private String departmentName;
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
+	@JoinColumn(name = "EMPLOYEE_ID")
 	private Employee manager;
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
