@@ -46,7 +46,7 @@ public class EmployeeDAO extends GenericDAO {
 	
 	public List<Employee> getEmpleadosByJobId(Integer id){
 
-		 String query = "from EMPLOYEES c where c.job = :id";
+		 String query = "from EMPLOYEES c join c.job j where j.id = :id";
 		 @SuppressWarnings("unchecked")
 		 List<Employee>  employeeList = (List<Employee>) this.getEntityManager().createQuery(query).setParameter("id", id);
 		 return employeeList;
