@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity(name = "DEPARTMENTS")
 public class Department {
 	@Id
@@ -20,6 +22,7 @@ public class Department {
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANAGER_ID")
+	@JsonIgnoreProperties
     private Employee manager;
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)

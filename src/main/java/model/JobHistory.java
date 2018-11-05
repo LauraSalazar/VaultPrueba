@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="JOB_HISTORY")
 public class JobHistory implements Serializable{
@@ -18,6 +20,7 @@ public class JobHistory implements Serializable{
 	@Id
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "EMPLOYEE_ID")
+	@JsonIgnoreProperties
     private Employee employee;
 	@Id
 	@Column(name = "START_DATE")
