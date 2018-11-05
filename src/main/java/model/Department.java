@@ -22,11 +22,11 @@ public class Department {
 	@Expose
 	private String departmentName;
 	
-	@ManyToOne(optional = false, cascade = CascadeType.ALL)
+	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANAGER_ID")
     private Employee manager;
 	
-	@ManyToOne(optional = false, cascade = CascadeType.ALL)
+	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "LOCATION_ID")
 	@Expose
 	private Location location;
