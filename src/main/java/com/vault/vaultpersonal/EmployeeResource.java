@@ -1,6 +1,10 @@
 package com.vault.vaultpersonal;
 
+import java.lang.reflect.Type;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,6 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
 import com.vault.dto.EmployeeDTO;
 import com.vault.services.EmployeeService;
 
@@ -105,6 +113,11 @@ public class EmployeeResource {
 		Map<String, Object> aMap = new HashMap<String, Object>();
 		aMap.put("result", "OK");
 		aMap.put("resultingObjects", aSerializableObject);
-		return new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create().toJson(aMap);
+		return new GsonBuilder().excludeFieldsWithoutExposeAnnotation().registerTypeAdapter(LocalDate.class, new JsonDeserializer<LocalDate>() {
+			@Override
+			public LocalDate deserialize(JsonElement json, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+			    return ZonedDateTime.parse(json.getAsJsonPrimitive().getAsString()).toLocalDate();
+			}
+			}).create().toJson(aMap);
 	}
 }
