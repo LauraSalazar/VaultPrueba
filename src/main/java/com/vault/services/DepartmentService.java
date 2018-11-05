@@ -36,8 +36,14 @@ public class DepartmentService {
 					Department d = new Department();
 					d.setDepartmentName(departmentName);
 					d.setManager(null);
-					d.setLocation(location);
-					deptDAO.getEntityManager().merge(location);
+					Location loc = new Location();
+					loc.setId(location.getId());
+					loc.setStreetAddress(location.getStreetAddress());
+					loc.setPostalCode(location.getPostalCode());
+					loc.setCity(location.getCity());
+					loc.setStateProvince(location.getStateProvince());
+					loc.setCountry(location.getCountry());
+					d.setLocation(loc);
 					deptDAO.create(d);
 					message = "Se agrego el department porque estamos antes del 15 y el promedio es mayor que 1000";
 				} else {
