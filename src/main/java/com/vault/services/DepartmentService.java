@@ -44,7 +44,7 @@ public class DepartmentService {
 				message = "El promedio es > 1000 pero estamos antes del 15";
 			}
 		}else {
-		message = "El promedio es < 1000";
+		message = "El promedio es < 1000 y estamos antes del 15";
 		}
 		if (dia > 15) {
 			if (promedio > 1500) {
