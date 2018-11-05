@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -83,7 +84,7 @@ public class Employee {
 	}
 
 	public Employee(String firstName, String lastName, String email, String phoneNumber, LocalDate hireDate, Job job,
-			Double salary, Double commissionPct, Department department, List<JobHistory> jobHistories) {
+			Double salary, Double commissionPct, Department department, Collection jobHistories) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -94,7 +95,7 @@ public class Employee {
 		this.salary = salary;
 		this.commissionPct = commissionPct;
 		this.department = department;
-		this.jobHistories = jobHistories;
+		this.jobHistories = (List<JobHistory>) jobHistories;
 	}
 
 	public String getLastName() {
