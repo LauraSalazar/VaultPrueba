@@ -33,7 +33,7 @@ public class DepartmentService {
 					Department d = new Department();
 					d.setDepartmentName(departmentName);
 					d.setManager(null);
-					d.setLocation(null);
+					d.setLocation(locDAO.findById(locationId));
 					deptDAO.create(d);
 					message = "Se agrego el department porque estamos antes del 15 y el promedio es mayor que 1000";
 				} else {
