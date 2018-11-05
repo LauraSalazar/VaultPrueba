@@ -31,7 +31,7 @@ public class Location {
     @Expose
 	private String stateProvince;
 	
-	@ManyToOne(optional = false, cascade = CascadeType.ALL)
+	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "COUNTRY_ID")
     @Expose
 	private Country country;

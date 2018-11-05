@@ -17,7 +17,7 @@ public class LocationDAO extends GenericDAO{
 
 	}
 	
-	
+	@Transactional
 	public Location findById(Integer id){	
 		Location loc = null;
 		String query = "from LOCATIONS a where a.id = :id ";

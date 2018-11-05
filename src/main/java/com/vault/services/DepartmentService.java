@@ -18,7 +18,7 @@ public class DepartmentService {
 	DepartmentDAO deptDAO = new DepartmentDAO();
 	LocationDAO locDAO = new LocationDAO();
 
-	@Transactional
+
 	public String insert(String departmentName, Integer locationId) {
 
 		// Department dept = new Department(departmentName,null,locationId);
@@ -36,14 +36,7 @@ public class DepartmentService {
 					Department d = new Department();
 					d.setDepartmentName(departmentName);
 					d.setManager(null);
-					Location loc = new Location();
-					loc.setId(location.getId());
-					loc.setStreetAddress(location.getStreetAddress());
-					loc.setPostalCode(location.getPostalCode());
-					loc.setCity(location.getCity());
-					loc.setStateProvince(location.getStateProvince());
-					loc.setCountry(location.getCountry());
-					d.setLocation(loc);
+					d.setLocation(null);
 					deptDAO.create(d);
 					message = "Se agrego el department porque estamos antes del 15 y el promedio es mayor que 1000";
 				} else {
@@ -62,9 +55,7 @@ public class DepartmentService {
 				message = "el monto promedio es mayor a 1500 y estamos despues del 15";
 			} else {
 				System.out.println(dia);
-				Location location = locDAO.findById(locationId);
-				deptDAO.getEntityManager().merge(location);
-				deptDAO.create(new Department(departmentName, null, location));
+				deptDAO.create(new Department(departmentName, null, null));
 				message = "Se agrego el department porque estamos despues del 15 y el monto es menor o igual a 1500";
 			}
 		}
