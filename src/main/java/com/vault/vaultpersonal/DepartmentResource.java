@@ -30,9 +30,7 @@ public class DepartmentResource {
 	public String insertar(Map<String, Object> model, @PathVariable("departmentName") String departmentName,
 			@PathVariable("locationId") Integer locationId) {
 
-		departmentService.insert(departmentName,locationId);
-
-		return generateJson(locationId);
+		return generateJson(departmentService.insert(departmentName,locationId));
 	}
 	
 	public String generateJson(Object aSerializableObject) {
