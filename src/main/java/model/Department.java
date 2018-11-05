@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.google.gson.annotations.Expose;
 
 @Entity(name = "DEPARTMENTS")
@@ -17,16 +16,19 @@ public class Department {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "DEPARTMENT_ID")
+	@Expose
 	private Integer id;
 	@Column(name = "DEPARTMENT_NAME")
+	@Expose
 	private String departmentName;
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANAGER_ID")
-	@Expose
     private Employee manager;
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
+	@JoinColumn(name = "LOCATION_ID")
+	@Expose
 	private Location location;
 
 	public Department() {

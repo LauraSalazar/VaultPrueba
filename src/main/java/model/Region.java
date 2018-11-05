@@ -6,13 +6,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.google.gson.annotations.Expose;
+
 @Entity(name = "REGIONS")
 public class Region {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "REGION_ID")
+	@Expose
 	private Integer id;
 	@Column(name = "NAME")
+    @Expose
 	private String name;
 	
 	

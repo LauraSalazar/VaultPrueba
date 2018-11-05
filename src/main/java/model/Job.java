@@ -6,17 +6,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.google.gson.annotations.Expose;
+
 @Entity(name = "JOBS")
 public class Job {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "JOB_ID")
+	@Expose
 	private Integer id;
 	@Column(name = "JOB_TITLE")
+	@Expose
 	private String jobTitle;
 	@Column(name = "MIN_SALARY")
+	@Expose
 	private Integer minSalary;
 	@Column(name = "MAX_SALARY")
+	@Expose
 	private Integer maxSalary;
 	
 	public Job() {

@@ -6,18 +6,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.google.gson.annotations.Expose;
 
 @Entity(name = "COUNTRIES")
 public class Country {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "COUNTRY_ID")
+    @Expose
 	private Integer id;
 	@Column(name = "COUNTRY_NAME")
+    @Expose
 	private String countryName;
 
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
+	@JoinColumn(name = "REGION_ID")
+    @Expose
 	private Region region;
 
 	public Country() {

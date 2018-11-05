@@ -36,23 +36,30 @@ public class Employee {
 	@Expose
 	private String phoneNumber;
 	@Column(name = "HIRE_DATE")
+	@Expose
 	private LocalDate hireDate;
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "JOB_ID")
+	@Expose
 	private Job job;
 	@Column(name = "SALARY")
+	@Expose
 	private Double salary;
 	@Column(name = "COMMISSION_PCT")
+	@Expose
 	private Double commissionPct;
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANAGER_ID")
+	@Expose
 	private Employee manager;
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "DEPARTMENT_ID")
+	@Expose
 	private Department department;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@Column(nullable = true)
+	@Expose
 	private List<JobHistory> jobHistories;
 
 	public Employee() {

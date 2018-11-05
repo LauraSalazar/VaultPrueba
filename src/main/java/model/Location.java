@@ -9,23 +9,31 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.google.gson.annotations.Expose;
+
 @Entity(name = "LOCATIONS")
 public class Location {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "LOCATION_ID")
+    @Expose
 	private Integer id;
 	@Column(name = "STREET_ADDRESS")
+    @Expose
 	private String streetAddress;
 	@Column(name = "POSTAL_CODE")
+    @Expose
 	private String postalCode;
 	@Column(name = "CITY")
+    @Expose
 	private String city;
 	@Column(name = "STATE_PROVINCE")
+    @Expose
 	private String stateProvince;
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "COUNTRY_ID")
+    @Expose
 	private Country country;
 
 	

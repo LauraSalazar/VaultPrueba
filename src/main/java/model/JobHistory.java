@@ -21,15 +21,17 @@ public class JobHistory implements Serializable{
 	@Id
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "EMPLOYEE_ID")
-	@Expose
     private Employee employee;
 	@Id
 	@Column(name = "START_DATE")
+	@Expose
 	private LocalDate startDate;
 	@Column(name = "END_DATE")
+	@Expose
 	private LocalDate endDate;
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "JOB_ID")
+	@Expose
 	private Job job;
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "DEPARTMENT_ID")
