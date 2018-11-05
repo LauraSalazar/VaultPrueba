@@ -3,6 +3,8 @@ package com.vault.services;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import dbaccess.vault.DepartmentDAO;
@@ -16,6 +18,7 @@ public class DepartmentService {
 	DepartmentDAO deptDAO = new DepartmentDAO();
 	LocationDAO locDAO = new LocationDAO();
 
+	@Transactional
 	public String insert(String departmentName, Integer locationId) {
 
 		// Department dept = new Department(departmentName,null,locationId);
