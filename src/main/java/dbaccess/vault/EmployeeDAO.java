@@ -57,20 +57,7 @@ public class EmployeeDAO extends GenericDAO {
 		Query a = this.getEntityManager().createQuery(query).setParameter("id", id);
 		 List<Employee>  employeeList = (List<Employee>) a.getResultList();
 		 System.out.println("Antes de entrar al for: " );		 
-		 for(Employee employee : employeeList) {
-			 System.out.println("Employee FirstName: " + employee.getFirstName());
-			 System.out.println("Region: " + employee.getDepartment().getLocation().getCountry().getRegion().getName());
-			 System.out.println("Employee id" + employee.getId());
-/*			 if (employee.getJobHistories() != null) {
-			 System.out.println("Lista history: " + employee.getJobHistories());
-			 }
-			 if (employee.getJobHistories() != null){
-			 for (JobHistory jh : employee.getJobHistories()) {
-				 
-				 System.out.println("Elemento employee firstName de history ");
-			 }
-			 }*/
-		 }
+
 		 return employeeList;
 	}
 	
@@ -82,11 +69,7 @@ public class EmployeeDAO extends GenericDAO {
 		 Query a = this.getEntityManager().createQuery(query).setParameter("id", id);
 		 List<Employee>  employeeList = (List<Employee>) a.getResultList();
 		 System.out.println("Antes de entrar al for: " );		 
-		 for(Employee employee : employeeList) {
-			 System.out.println("Employee FirstName: " + employee.getFirstName());
-			 System.out.println("Region: " + employee.getDepartment().getLocation().getCountry().getRegion().getName());
-			 System.out.println("Employee id" + employee.getId());
-		 }
+
 		 return employeeList;
 	}
 	
@@ -99,11 +82,7 @@ public class EmployeeDAO extends GenericDAO {
 		 Query a = this.getEntityManager().createQuery(query).setParameter("lastName", lastName);
 		 List<Employee>  employeeList = (List<Employee>) a.getResultList();
 		 System.out.println("Antes de entrar al for: " );		 
-		 for(Employee employee : employeeList) {
-			 System.out.println("Employee FirstName: " + employee.getFirstName());
-			 System.out.println("Region: " + employee.getDepartment().getLocation().getCountry().getRegion().getName());
-			 System.out.println("Employee id" + employee.getId());
-		 }
+
 		 return employeeList;
 	}
 }
