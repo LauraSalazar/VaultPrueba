@@ -53,8 +53,8 @@ public class EmployeeDAO extends GenericDAO {
 	public List<Employee> getEmpleadosByJobId(Integer id){
 
 		 //String query = "select new model.Employee(c.firstName,c.lastName,c.email,c.phoneNumber,c.hireDate,c.job,c.salary,c.commissionPct,c.department,c.jobHistories) from EMPLOYEES c join c.job j where j.id = :id";
-		String query = " from EMPLOYEES c where (c.job j in (from JOBS jbd where jbsid= :id))"; 
-		Query a = this.getEntityManager().createQuery(query);//.setParameter("id", id);
+		String query = " from EMPLOYEES c where (c.job.id d = :id))"; 
+		Query a = this.getEntityManager().createQuery(query).setParameter("id", id);
 		 List<Employee>  employeeList = (List<Employee>) a.getResultList();
 		 System.out.println("Antes de entrar al for: " );		 
 		 for(Employee employee : employeeList) {
