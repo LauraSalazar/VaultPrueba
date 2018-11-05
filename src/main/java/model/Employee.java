@@ -13,20 +13,27 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.google.gson.annotations.Expose;
+
 @Entity(name = "EMPLOYEES")
 public class Employee {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "EMPLOYEE_ID")
+	@Expose
 	private Integer id;
 	@Column(name = "FIRST_NAME")
+	@Expose
 	private String firstName;
 	@Column(name = "LAST_NAME")
+	@Expose
 	private String lastName;
 	@Column(name = "EMAIL")
+	@Expose
 	private String email;
 	@Column(name = "PHONE_NUMBER")
+	@Expose
 	private String phoneNumber;
 	@Column(name = "HIRE_DATE")
 	private LocalDate hireDate;
