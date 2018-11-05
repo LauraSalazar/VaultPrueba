@@ -57,6 +57,7 @@ public class DepartmentService {
 			} else {
 				System.out.println(dia);
 				Location location = locDAO.findById(locationId);
+				deptDAO.getEntityManager().merge(location);
 				deptDAO.create(new Department(departmentName, null, location));
 				message = "Se agrego el department porque estamos despues del 15 y el monto es menor o igual a 1500";
 			}
