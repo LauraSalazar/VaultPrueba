@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import model.Employee;
-import model.JobHistory;
 
 @Repository
 public class EmployeeDAO extends GenericDAO {
