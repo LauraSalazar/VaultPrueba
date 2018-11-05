@@ -2,18 +2,26 @@ package com.vault.dto;
 
 import java.time.LocalDate;
 
+import com.google.gson.annotations.Expose;
+
 import model.Employee;
 
 
 
 public class EmployeeDTO {
-	
+	@Expose
 	private String firstName;
+	@Expose
 	private String lastName;
+	@Expose
 	private String email;
+	@Expose
 	private String phoneNumber;
+	@Expose
 	private LocalDate hireDate;
+	@Expose
 	private Double salary;
+	@Expose
 	private Double commissionPct;
 	public String getFirstName() {
 		return firstName;
