@@ -3,6 +3,7 @@ package com.vault.vaultpersonal;
 import java.lang.reflect.Type;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.HashMap;
@@ -113,10 +114,10 @@ public class EmployeeResource {
 		Map<String, Object> aMap = new HashMap<String, Object>();
 		aMap.put("result", "OK");
 		aMap.put("resultingObjects", aSerializableObject);
-		return new GsonBuilder().registerTypeAdapter(LocalDate.class, new JsonDeserializer<LocalDate>() {
+		return new GsonBuilder().registerTypeAdapter(LocalDateTime.class, new JsonDeserializer<LocalDateTime>() {
 			@Override
-			public LocalDate deserialize(JsonElement json, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
-			    return ZonedDateTime.parse(json.getAsJsonPrimitive().getAsString()).toLocalDate();
+			public LocalDateTime deserialize(JsonElement json, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+			    return ZonedDateTime.parse(json.getAsJsonPrimitive().getAsString()).toLocalDateTime();
 			}
 			}).excludeFieldsWithoutExposeAnnotation().create().toJson(aMap);
 	}
