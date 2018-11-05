@@ -40,6 +40,11 @@ public class DepartmentService {
 					message = "No existe la location";
 				}
 			}
+			else {
+				message = "El promedio es > 1000 pero estamos antes del 15";
+			}
+		}else {
+		message = "El promedio es < 1000";
 		}
 		if (dia > 15) {
 			if (promedio > 1500) {
