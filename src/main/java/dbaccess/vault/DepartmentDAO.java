@@ -19,7 +19,6 @@ public class DepartmentDAO extends GenericDAO {
 		return dep.getId();
 
 	}
-
 	@Transactional
 	public Double calcularPromedio(Integer locationId) {
 
