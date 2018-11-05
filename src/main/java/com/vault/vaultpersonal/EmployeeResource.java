@@ -113,11 +113,11 @@ public class EmployeeResource {
 		Map<String, Object> aMap = new HashMap<String, Object>();
 		aMap.put("result", "OK");
 		aMap.put("resultingObjects", aSerializableObject);
-		return new GsonBuilder().excludeFieldsWithoutExposeAnnotation().registerTypeAdapter(LocalDate.class, new JsonDeserializer<LocalDate>() {
+		return new GsonBuilder().registerTypeAdapter(LocalDate.class, new JsonDeserializer<LocalDate>() {
 			@Override
 			public LocalDate deserialize(JsonElement json, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
 			    return ZonedDateTime.parse(json.getAsJsonPrimitive().getAsString()).toLocalDate();
 			}
-			}).create().toJson(aMap);
+			}).excludeFieldsWithoutExposeAnnotation().create().toJson(aMap);
 	}
 }
