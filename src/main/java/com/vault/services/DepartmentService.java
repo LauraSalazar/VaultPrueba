@@ -1,37 +1,53 @@
 package com.vault.services;
 
-import java.time.LocalDate;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.springframework.stereotype.Service;
 
 import dbaccess.vault.DepartmentDAO;
-
+import dbaccess.vault.LocationDAO;
+import model.Department;
+import model.Location;
 
 @Service
 public class DepartmentService {
-	
+
 	DepartmentDAO deptDAO = new DepartmentDAO();
-	
-	public String insert(String departmentName,Integer locationId) {
+	LocationDAO locDAO = new LocationDAO();
 
-		
-		//Department dept = new Department(departmentName,null,locationId);
+	public String insert(String departmentName, Integer locationId) {
+
+		// Department dept = new Department(departmentName,null,locationId);
 		Double promedio = deptDAO.calcularPromedio(locationId);
-
+		String message = null;
+		Calendar c2 = new GregorianCalendar();
+		Integer dia = c2.get(Calendar.DATE);
 		if (promedio > 1000) {
-			Calendar c1 = Calendar.getInstance();
-			Calendar c2 = new GregorianCalendar();
-			Integer dia = c2.get(Calendar.DATE);
-            System.out.println(dia);
-		    
+
+			dia = c2.get(Calendar.DATE);
+			if (dia < 15) {
+				System.out.println(dia);
+				Location location = locDAO.findById(locationId);
+				if (location != null) {
+					deptDAO.create(new Department(departmentName, null, location));
+					message = "Se agrego el department porque estamos antes del 15 y el promedio es mayor que 1000";
+				} else {
+					message = "No existe la location";
+				}
+			}
 		}
-		return departmentName;
+		if (dia > 15) {
+			if (promedio > 1500) {
 
-
+				message = "el monto promedio es mayor a 1500 y estamos despues del 15";
+			} else {
+				System.out.println(dia);
+				Location location = locDAO.findById(locationId);
+				deptDAO.create(new Department(departmentName, null, location));
+				message = "Se agrego el department porque estamos despues del 15 y el monto es menor o igual a 1500";
+			}
+		}
+		return message;
 	}
-
-
 }
