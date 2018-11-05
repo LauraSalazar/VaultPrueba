@@ -22,7 +22,6 @@ public class Department {
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANAGER_ID")
-	@JsonIgnoreProperties
     private Employee manager;
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
