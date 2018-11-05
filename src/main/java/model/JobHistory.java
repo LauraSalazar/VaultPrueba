@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.google.gson.annotations.Expose;
 
 @Entity
 @Table(name="JOB_HISTORY")
@@ -20,6 +21,7 @@ public class JobHistory implements Serializable{
 	@Id
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "EMPLOYEE_ID")
+	@Expose
     private Employee employee;
 	@Id
 	@Column(name = "START_DATE")

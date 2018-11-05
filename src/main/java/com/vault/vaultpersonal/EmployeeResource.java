@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.vault.dto.EmployeeDTO;
 import com.vault.services.EmployeeService;
 
@@ -103,6 +104,6 @@ public class EmployeeResource {
 		Map<String, Object> aMap = new HashMap<String, Object>();
 		aMap.put("result", "OK");
 		aMap.put("resultingObjects", aSerializableObject);
-		return new Gson().toJson(aMap);
+		return new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create().toJson(aMap);
 	}
 }

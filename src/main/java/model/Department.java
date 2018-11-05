@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.google.gson.annotations.Expose;
 
 @Entity(name = "DEPARTMENTS")
 public class Department {
@@ -22,6 +23,7 @@ public class Department {
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANAGER_ID")
+	@Expose
     private Employee manager;
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL)
