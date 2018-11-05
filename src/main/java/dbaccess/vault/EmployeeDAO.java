@@ -95,6 +95,7 @@ public class EmployeeDAO extends GenericDAO {
 
 		 //String query = "select new model.Employee(c.firstName,c.lastName,c.email,c.phoneNumber,c.hireDate,c.job,c.salary,c.commissionPct,c.department,c.jobHistories) from EMPLOYEES c where c.lastName = :id";
 	     String query = " from EMPLOYEES c where (c.lastName = " + lastName + " )";
+	     System.out.println(query);
 		 Query a = this.getEntityManager().createQuery(query);
 		 List<Employee>  employeeList = (List<Employee>) a.getResultList();
 		 System.out.println("Antes de entrar al for: " );		 
