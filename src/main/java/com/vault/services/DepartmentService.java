@@ -30,7 +30,11 @@ public class DepartmentService {
 				System.out.println(dia);
 				Location location = locDAO.findById(locationId);
 				if (location != null) {
-					deptDAO.create(new Department(departmentName, null, location));
+					Department d = new Department();
+					d.setDepartmentName(departmentName);
+					d.setManager(null);
+					d.setLocation(location);
+					deptDAO.create(d);
 					message = "Se agrego el department porque estamos antes del 15 y el promedio es mayor que 1000";
 				} else {
 					message = "No existe la location";
